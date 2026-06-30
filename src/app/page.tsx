@@ -1,10 +1,9 @@
 import Header from "@/components/layout/Header";
 import Hero from "@/components/sections/Hero";
-import Section from "@/components/layout/Section";
-import SectionTitle from "@/components/common/SectionTitle";
 import Features from "@/components/sections/Features";
 import Projects from "@/components/sections/Projects";
 import Process from "@/components/sections/Process";
+import About from "@/components/sections/About";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/sections/CTA";
 import Testimonials from "@/components/sections/Testimonials";
@@ -25,13 +24,7 @@ export default function Home() {
 
         <Process />
 
-        <Section id="sobre" className="bg-slate-50">
-          <SectionTitle
-            eyebrow="Sobre o Starter Kit"
-            title="Uma estrutura sólida para projetos profissionais."
-            description="Componentes reutilizáveis, conteúdo organizado e uma arquitetura preparada para sites institucionais e landing pages."
-          />
-        </Section>
+        <About />
 
         <Testimonials />
 
