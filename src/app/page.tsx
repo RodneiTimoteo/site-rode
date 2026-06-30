@@ -3,6 +3,7 @@ import Hero from "@/components/sections/Hero";
 import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/common/SectionTitle";
 import Features from "@/components/sections/Features";
+import Projects from "@/components/sections/Projects";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/sections/CTA";
 import Testimonials from "@/components/sections/Testimonials";
@@ -18,6 +19,8 @@ export default function Home() {
         <Hero />
 
         <Features />
+
+        <Projects />
 
         <Section id="sobre" className="bg-slate-50">
           <SectionTitle

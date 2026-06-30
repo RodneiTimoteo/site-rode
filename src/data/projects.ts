@@ -1,0 +1,80 @@
+export interface ProjectLink {
+  label: string;
+  href: string;
+}
+
+export interface ProjectImage {
+  desktop?: string;
+  mobile?: string;
+  alt?: string;
+  isPlaceholder: boolean;
+}
+
+export interface FeaturedProject {
+  id: string;
+  client: string;
+  category: string;
+  objective: string;
+  solution: string;
+  technologies: string[];
+  status: string;
+  primaryLink?: ProjectLink;
+  detailsHref: string;
+  image: ProjectImage;
+}
+
+export interface SegmentConcept {
+  id: string;
+  title: string;
+  description: string;
+}
+
+export const projectsSection = {
+  eyebrow: "Projetos",
+  title: "Projetos desenvolvidos para transformar presença digital em confiança",
+  description:
+    "Cada projeto é planejado de acordo com os objetivos, o público e a identidade de cada cliente.",
+} as const;
+
+export const featuredProject = {
+  id: "camila-timoteo-vieira",
+  client: "Camila Timóteo Vieira",
+  category: "Portfólio executivo",
+  objective:
+    "Apresentar sua trajetória profissional, experiências, cursos, conquistas e projetos pessoais em uma presença digital moderna e organizada.",
+  solution:
+    "Desenvolvimento de um site responsivo, com identidade executiva, navegação clara, integração com redes sociais e estrutura preparada para valorizar sua autoridade profissional.",
+  technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
+  status: "Projeto publicado",
+  detailsHref: "#case-camila-timoteo-vieira",
+  image: {
+    isPlaceholder: true,
+  },
+} satisfies FeaturedProject;
+
+export const segmentConcepts = [
+  {
+    id: "advocacia",
+    title: "Advocacia",
+    description:
+      "Presença institucional sóbria, clara e focada em confiança.",
+  },
+  {
+    id: "clinica-odontologica",
+    title: "Clínica odontológica",
+    description:
+      "Experiência acolhedora, profissional e orientada ao agendamento.",
+  },
+  {
+    id: "industria-servicos-b2b",
+    title: "Indústria e serviços B2B",
+    description:
+      "Comunicação objetiva para apresentar soluções, capacidades e gerar oportunidades comerciais.",
+  },
+] satisfies SegmentConcept[];
+
+export const segmentConceptsIntro = {
+  title: "Conceitos por segmento",
+  description:
+    "Estudos visuais desenvolvidos para demonstrar possibilidades de presença digital em diferentes áreas.",
+} as const;
