@@ -4,6 +4,7 @@ import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/common/SectionTitle";
 import Features from "@/components/sections/Features";
 import Projects from "@/components/sections/Projects";
+import Process from "@/components/sections/Process";
 import Footer from "@/components/layout/Footer";
 import CTA from "@/components/sections/CTA";
 import Testimonials from "@/components/sections/Testimonials";
@@ -21,6 +22,8 @@ export default function Home() {
         <Features />
 
         <Projects />
+
+        <Process />
 
         <Section id="sobre" className="bg-slate-50">
           <SectionTitle
