@@ -3,37 +3,44 @@ import Link from "next/link";
 import Logo from "@/components/common/Logo";
 import Container from "@/components/layout/Container";
 import { MobileMenu } from "@/components/layout/MobileMenu";
+import { contactInfo } from "@/data/contact";
 import { navigation } from "@/data/navigation";
+
+const ctaHref = contactInfo.whatsappUrl || "#contato";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/85 backdrop-blur-md">
-      <Container className="flex h-20 items-center justify-between">
-        <Link href="#inicio" aria-label="Ir para o início">
-          <Logo />
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-[#050505]/88 backdrop-blur-md">
+      <Container className="flex h-18 items-center justify-between gap-6 lg:h-20">
+        <Link
+          href="#inicio"
+          aria-label="Ir para o início"
+          className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+        >
+          <Logo size="sm" />
         </Link>
 
         <nav
           aria-label="Navegação principal"
-          className="hidden items-center gap-8 md:flex"
+          className="hidden flex-1 items-center justify-center gap-7 lg:flex"
         >
           {navigation.map((item) => (
             <Link
               key={item.label}
               href={item.href}
-              className="text-sm font-medium text-slate-700 transition hover:text-slate-950"
+              className="rounded-md px-1 py-2 text-sm font-medium text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
             >
               {item.label}
             </Link>
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <Link
-            href="#contato"
-            className="inline-flex min-h-11 items-center justify-center rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+            href={ctaHref}
+            className="inline-flex min-h-11 items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_32px_rgba(201,165,92,0.16)] transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           >
-            Fale Conosco
+            Solicitar orçamento
           </Link>
         </div>
 

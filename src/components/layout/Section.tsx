@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 import Container from "./Container";
 
 interface SectionProps {
@@ -13,10 +13,8 @@ export default function Section({
   className = "",
 }: SectionProps) {
   return (
-    <section id={id} className={`py-24 ${className}`}>
-      <Container>
-        {children}
-      </Container>
+    <section id={id} className={["py-20 sm:py-24 lg:py-28", className].join(" ")}>
+      <Container>{children}</Container>
     </section>
   );
 }

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
-const geist = Geist({
-  subsets: ["latin"],
-});
+const fontFamily =
+  'Inter, "Segoe UI", "Helvetica Neue", Arial, sans-serif';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -36,11 +34,11 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         className={`
-          ${geist.className}
           bg-white
           text-slate-900
           antialiased
         `}
+        style={{ fontFamily }}
       >
         {children}
       </body>

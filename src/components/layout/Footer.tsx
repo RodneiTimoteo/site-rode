@@ -1,50 +1,43 @@
 import Link from "next/link";
-import {
-  BriefcaseBusiness,
-  Camera,
-  Code2,
-  Play,
-} from "lucide-react";
+import { ExternalLink, Mail, MapPin } from "lucide-react";
 
 import Logo from "@/components/common/Logo";
 import Container from "@/components/layout/Container";
+import { contactInfo } from "@/data/contact";
 import { navigation } from "@/data/navigation";
 import { siteConfig } from "@/data/site";
 import { socialLinks } from "@/data/social";
-
-const socialIcons = {
-  instagram: Camera,
-  linkedin: BriefcaseBusiness,
-  youtube: Play,
-  github: Code2,
-};
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-slate-800 bg-slate-950 text-white">
-      <Container className="py-14">
-        <div className="grid gap-10 md:grid-cols-3">
+    <footer className="border-t border-white/10 bg-[#050505] text-foreground">
+      <Container className="py-14 sm:py-16">
+        <div className="grid gap-10 lg:grid-cols-[1.35fr_0.8fr_1fr] lg:gap-14">
           <div>
-            <Logo className="text-white" />
+            <Logo size="lg" />
 
-            <p className="mt-5 max-w-sm leading-7 text-slate-400">
+            <p className="mt-5 max-w-xl leading-7 text-muted-foreground">
               {siteConfig.description}
+            </p>
+
+            <p className="mt-4 max-w-lg text-sm leading-6 text-muted-foreground/80">
+              {contactInfo.serviceText}
             </p>
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300">
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
               Navegação
             </h2>
 
-            <nav className="mt-5 flex flex-col gap-3">
+            <nav className="mt-5 flex flex-col gap-3" aria-label="Navegação do rodapé">
               {navigation.map((item) => (
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="w-fit text-slate-400 transition hover:text-white"
+                  className="w-fit rounded-md text-sm text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
                   {item.label}
                 </Link>
@@ -53,35 +46,51 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-300">
-              Redes sociais
+            <h2 className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+              Contato
             </h2>
 
-            <div className="mt-5 flex flex-wrap gap-3">
-              {socialLinks.map(({ name, icon, url }) => {
-                const Icon = socialIcons[icon];
+            <div className="mt-5 space-y-4 text-sm text-muted-foreground">
+              <a
+                href={"mailto:" + contactInfo.email}
+                className="flex items-center gap-3 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              >
+                <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span>{contactInfo.email}</span>
+              </a>
 
-                return (
+              <p className="flex items-center gap-3">
+                <MapPin className="h-4 w-4 text-primary" aria-hidden="true" />
+                <span>{siteConfig.address.city}, Pernambuco</span>
+              </p>
+            </div>
+
+            {socialLinks.length > 0 && (
+              <div className="mt-6 flex flex-wrap gap-3">
+                {socialLinks.map(({ name, url, username }) => (
                   <Link
                     key={name}
-                    href={url || "#"}
-                    aria-label={name}
-                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-slate-700 text-slate-400 transition hover:border-slate-500 hover:bg-slate-900 hover:text-white"
+                    href={url}
+                    aria-label={`Abrir ${name} da RODE em uma nova aba`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/10 px-3 text-sm font-medium text-muted-foreground transition hover:border-primary/50 hover:bg-white/5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
                   >
-                    <Icon className="h-5 w-5" aria-hidden="true" />
+                    <span>{username || name}</span>
+                    <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
                   </Link>
-                );
-              })}
-            </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-slate-800 pt-6 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>
 
-          <p>Desenvolvido com Next.js e Tailwind CSS.</p>
+          <p>Presença digital e automações para negócios em todo o Brasil.</p>
         </div>
       </Container>
     </footer>
