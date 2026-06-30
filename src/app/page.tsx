@@ -15,19 +15,7 @@ export default function Home() {
       <Header />
 
       <main>
-        <Hero
-          eyebrow="Starter Kit Premium"
-          title="Uma base profissional para criar sites modernos com mais rapidez."
-          description="Next.js, TypeScript, Tailwind CSS, Shadcn/UI e componentes reutilizáveis organizados para projetos reais."
-          primaryAction={{
-            label: "Conhecer estrutura",
-            href: "#sobre",
-          }}
-          secondaryAction={{
-            label: "Entrar em contato",
-            href: "#contato",
-          }}
-        />
+        <Hero />
 
         <Section id="sobre" className="bg-slate-50">
           <SectionTitle
