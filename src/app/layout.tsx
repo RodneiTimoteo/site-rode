@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist } from "next/font/google";
+import { siteConfig } from "@/data/site";
 import "./globals.css";
 
 const geist = Geist({
@@ -7,8 +8,23 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: "Starter Next Premium",
-  description: "Template profissional desenvolvido com Next.js",
+  metadataBase: new URL(siteConfig.url),
+  title: siteConfig.seo.title,
+  description: siteConfig.seo.description,
+  keywords: [...siteConfig.seo.keywords],
+  openGraph: {
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: siteConfig.seo.title,
+    description: siteConfig.seo.description,
+  },
 };
 
 export default function RootLayout({

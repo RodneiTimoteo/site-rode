@@ -1,22 +1,10 @@
+import { siteConfig } from "@/data/site";
+
 export const socialLinks = [
   {
     name: "Instagram",
     icon: "instagram",
-    url: "",
-  },
-  {
-    name: "LinkedIn",
-    icon: "linkedin",
-    url: "",
-  },
-  {
-    name: "YouTube",
-    icon: "youtube",
-    url: "",
-  },
-  {
-    name: "GitHub",
-    icon: "github",
-    url: "",
+    username: siteConfig.social.instagramUser,
+    url: siteConfig.social.instagram,
   },
 ] as const;
