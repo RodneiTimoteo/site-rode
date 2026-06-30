@@ -1,40 +1,27 @@
-import Section from "@/components/layout/Section";
-import SectionTitle from "@/components/common/SectionTitle";
 import FeatureCard from "@/components/cards/FeatureCard";
-
-const features = [
-  {
-    icon: "layers" as const,
-    title: "Arquitetura organizada",
-    description:
-      "Estrutura de pastas clara e componentes separados por responsabilidade.",
-  },
-  {
-    icon: "code" as const,
-    title: "Componentes reutilizáveis",
-    description:
-      "Blocos prontos para acelerar a criação de sites institucionais e landing pages.",
-  },
-  {
-    icon: "gauge" as const,
-    title: "Performance e manutenção",
-    description:
-      "Base moderna com Next.js, TypeScript e Tailwind CSS para projetos rápidos e fáceis de evoluir.",
-  },
-];
+import SectionTitle from "@/components/common/SectionTitle";
+import Section from "@/components/layout/Section";
+import { solutions, solutionsSection } from "@/data/solutions";
 
 export default function Features() {
   return (
-    <Section id="recursos">
-      <SectionTitle
-        eyebrow="Recursos"
-        title="Tudo o que uma boa base precisa."
-        description="Uma fundação pensada para reduzir retrabalho e manter qualidade entre diferentes projetos."
-      />
+    <Section id="solucoes" className="border-b border-white/10 bg-[#080808] scroll-mt-24">
+      <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
+        <SectionTitle
+          eyebrow={solutionsSection.eyebrow}
+          title={solutionsSection.title}
+          description={solutionsSection.description}
+          tone="dark"
+        />
 
-      <div className="mt-12 grid gap-6 md:grid-cols-3">
-        {features.map((feature) => (
-          <FeatureCard key={feature.title} {...feature} />
+        <p className="max-w-xl text-sm leading-7 text-muted-foreground lg:justify-self-end">
+          Cada solução é planejada a partir da realidade da empresa, com foco em clareza, atendimento e processos mais organizados.
+        </p>
+      </div>
+
+      <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {solutions.map((solution) => (
+          <FeatureCard key={solution.id} solution={solution} />
         ))}
       </div>
     </Section>

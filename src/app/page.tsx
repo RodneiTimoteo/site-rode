@@ -17,6 +17,8 @@ export default function Home() {
       <main>
         <Hero />
 
+        <Features />
+
         <Section id="sobre" className="bg-slate-50">
           <SectionTitle
             eyebrow="Sobre o Starter Kit"
@@ -24,8 +26,6 @@ export default function Home() {
             description="Componentes reutilizáveis, conteúdo organizado e uma arquitetura preparada para sites institucionais e landing pages."
           />
         </Section>
-
-        <Features />
 
         <Testimonials />
 

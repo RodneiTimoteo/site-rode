@@ -1,39 +1,50 @@
-import { Code2, Gauge, Layers3 } from "lucide-react";
+import { Check, Compass, MonitorSmartphone, Workflow } from "lucide-react";
 
-type FeatureIcon = "layers" | "code" | "gauge";
-
-interface FeatureCardProps {
-  icon: FeatureIcon;
-  title: string;
-  description: string;
-}
+import type { Solution } from "@/data/solutions";
 
 const icons = {
-  layers: Layers3,
-  code: Code2,
-  gauge: Gauge,
-};
+  layout: MonitorSmartphone,
+  workflow: Workflow,
+  strategy: Compass,
+} as const;
 
-export default function FeatureCard({
-  icon,
-  title,
-  description,
-}: FeatureCardProps) {
-  const Icon = icons[icon];
+interface FeatureCardProps {
+  solution: Solution;
+}
+
+export default function FeatureCard({ solution }: FeatureCardProps) {
+  const Icon = icons[solution.icon];
 
   return (
-    <article className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-md">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-950 text-white">
-        <Icon className="h-6 w-6" aria-hidden="true" />
+    <article className="group flex h-full flex-col rounded-3xl border border-border bg-card p-6 text-card-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/45 hover:bg-secondary sm:p-7">
+      <div className="flex items-start justify-between gap-5">
+        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/35 bg-primary/[0.08] text-primary">
+          <Icon className="h-5 w-5" aria-hidden="true" />
+        </div>
+
+        <span className="rounded-full border border-border px-3 py-1 text-xs font-semibold text-muted-foreground transition group-hover:border-primary/45 group-hover:text-primary">
+          {solution.number}
+        </span>
       </div>
 
-      <h3 className="mt-6 text-xl font-semibold text-slate-950">
-        {title}
-      </h3>
+      <div className="mt-7 flex flex-1 flex-col">
+        <h3 className="text-xl font-semibold tracking-normal text-card-foreground">
+          {solution.title}
+        </h3>
 
-      <p className="mt-3 leading-7 text-slate-600">
-        {description}
-      </p>
+        <p className="mt-4 text-sm leading-7 text-muted-foreground">
+          {solution.description}
+        </p>
+
+        <ul className="mt-6 space-y-3 border-t border-border pt-6">
+          {solution.items.map((item) => (
+            <li key={item} className="flex gap-3 text-sm leading-6 text-muted-foreground">
+              <Check className="mt-1 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
     </article>
   );
 }
