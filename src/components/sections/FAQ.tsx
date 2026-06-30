@@ -1,31 +1,46 @@
-import Section from "@/components/layout/Section";
 import SectionTitle from "@/components/common/SectionTitle";
+import Section from "@/components/layout/Section";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import { faqItems } from "@/data/faq";
+import { faqItems, faqSection } from "@/data/faq";
 
 export default function FAQ() {
   return (
-    <Section id="faq">
-      <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <SectionTitle
-          eyebrow="Perguntas frequentes"
-          title="Informações importantes antes de começar."
-          description="Use esta seção para esclarecer dúvidas comuns e reduzir objeções dos visitantes."
-        />
+    <Section id="faq" className="border-b border-white/10 bg-[#080808] scroll-mt-24">
+      <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+        <div>
+          <SectionTitle
+            eyebrow={faqSection.eyebrow}
+            title={faqSection.title}
+            description={faqSection.description}
+            tone="dark"
+          />
 
-        <Accordion type="single" collapsible className="w-full">
-          {faqItems.map((item, index) => (
-            <AccordionItem key={item.question} value={`item-${index}`}>
-              <AccordionTrigger className="text-left text-base font-semibold text-slate-950">
+          <p className="mt-6 max-w-xl text-sm leading-7 text-muted-foreground">
+            As respostas ajudam a alinhar expectativas antes do diagnóstico e deixam o início do projeto mais claro.
+          </p>
+        </div>
+
+        <Accordion
+          type="single"
+          collapsible
+          className="rounded-3xl border border-border bg-card p-3 text-card-foreground sm:p-4"
+        >
+          {faqItems.map((item) => (
+            <AccordionItem
+              key={item.id}
+              value={item.id}
+              className="border-white/10 px-2 last:border-b-0 sm:px-3"
+            >
+              <AccordionTrigger className="py-5 text-left text-base font-semibold leading-6 text-card-foreground hover:text-primary hover:no-underline focus-visible:ring-primary/70 sm:text-lg">
                 {item.question}
               </AccordionTrigger>
 
-              <AccordionContent className="text-base leading-7 text-slate-600">
+              <AccordionContent className="pb-5 text-sm leading-7 text-muted-foreground sm:text-base">
                 {item.answer}
               </AccordionContent>
             </AccordionItem>
