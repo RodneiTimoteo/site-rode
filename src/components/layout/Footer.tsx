@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLink, Mail, MapPin } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 
 import Logo from "@/components/common/Logo";
 import Container from "@/components/layout/Container";
@@ -51,8 +51,20 @@ export default function Footer() {
             </h2>
 
             <div className="mt-5 space-y-4 text-sm text-muted-foreground">
+              {contactInfo.whatsappUrl && (
+                <a
+                  href={contactInfo.whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                >
+                  <Phone className="h-4 w-4 text-primary" aria-hidden="true" />
+                  <span>{contactInfo.phone}</span>
+                </a>
+              )}
+
               <a
-                href={"mailto:" + contactInfo.email}
+                href={contactInfo.emailUrl}
                 className="flex items-center gap-3 transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
               >
                 <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
