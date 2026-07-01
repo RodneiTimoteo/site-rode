@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import Container from "@/components/layout/Container";
@@ -9,64 +10,33 @@ const primaryActionIsExternal = Boolean(contactInfo.whatsappUrl);
 
 function HeroVisual() {
   return (
-    <div
-      className="relative mx-auto mt-14 w-full max-w-md lg:mt-0 lg:max-w-none"
-      aria-hidden="true"
-    >
-      <div className="absolute -inset-6 rounded-[2rem] border border-primary/10 bg-primary/[0.03] blur-2xl" />
+    <div className="relative mx-auto mt-14 w-full max-w-md lg:mt-0 lg:max-w-none">
+      <div
+        className="absolute left-1/2 top-1/2 h-64 w-64 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.11] blur-3xl sm:h-80 sm:w-80"
+        aria-hidden="true"
+      />
 
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0B0B0C]/90 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.36)]">
-        <div className="mb-5 flex items-center justify-between border-b border-white/10 pb-4">
-          <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-            <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
-          </div>
-          <span className="h-px w-24 bg-primary/30" />
+      <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-[#111111]/88 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.34)] sm:p-6">
+        <div className="absolute inset-x-6 top-6 h-px bg-gradient-to-r from-transparent via-primary/35 to-transparent" aria-hidden="true" />
+
+        <div className="relative mx-auto flex aspect-square max-w-[18rem] items-center justify-center sm:max-w-[22rem] lg:max-w-[25rem]">
+          <div className="absolute inset-5 rounded-full border border-primary/18 bg-primary/[0.035]" aria-hidden="true" />
+          <div className="absolute inset-12 rounded-full border border-white/10" aria-hidden="true" />
+
+          <Image
+            src="/images/brand/logoabelha.png"
+            alt="Abelha da identidade visual da RODE Soluções Inteligentes"
+            width={1536}
+            height={1024}
+            priority
+            className="relative z-10 h-auto w-[88%] drop-shadow-[0_24px_42px_rgba(0,0,0,0.38)]"
+          />
         </div>
 
-        <div className="grid gap-4">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-            <div className="mb-4 flex items-center justify-between">
-              <span className="h-2 w-20 rounded-full bg-primary/70" />
-              <span className="h-2 w-10 rounded-full bg-white/15" />
-            </div>
-            <div className="space-y-3">
-              <span className="block h-2 rounded-full bg-white/16" />
-              <span className="block h-2 w-4/5 rounded-full bg-white/10" />
-              <span className="block h-2 w-2/3 rounded-full bg-white/10" />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            <div className="min-h-28 rounded-2xl border border-white/10 bg-white/[0.025] p-4">
-              <span className="block h-8 w-8 rounded-xl border border-primary/30" />
-              <span className="mt-5 block h-2 w-20 rounded-full bg-white/14" />
-              <span className="mt-3 block h-2 w-14 rounded-full bg-primary/50" />
-            </div>
-
-            <div className="min-h-28 rounded-2xl border border-primary/20 bg-primary/[0.055] p-4">
-              <span className="block h-2 w-16 rounded-full bg-primary/70" />
-              <div className="mt-5 space-y-2.5">
-                <span className="block h-2 rounded-full bg-white/14" />
-                <span className="block h-2 w-4/5 rounded-full bg-white/10" />
-                <span className="block h-2 w-3/5 rounded-full bg-white/10" />
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
-            <div className="grid grid-cols-[auto_1fr_auto] items-center gap-3">
-              <span className="h-3 w-3 rounded-full bg-primary" />
-              <span className="h-px bg-white/14" />
-              <span className="h-3 w-3 rounded-full border border-primary/50" />
-            </div>
-            <div className="mt-5 grid grid-cols-3 gap-2">
-              <span className="h-16 rounded-xl bg-white/[0.045]" />
-              <span className="h-16 rounded-xl bg-primary/[0.09]" />
-              <span className="h-16 rounded-xl bg-white/[0.045]" />
-            </div>
-          </div>
+        <div className="relative mt-5 grid gap-3 sm:grid-cols-3" aria-hidden="true">
+          <span className="h-16 rounded-2xl border border-white/10 bg-white/[0.035]" />
+          <span className="h-16 rounded-2xl border border-primary/20 bg-primary/[0.08]" />
+          <span className="h-16 rounded-2xl border border-white/10 bg-white/[0.035]" />
         </div>
       </div>
     </div>
@@ -77,9 +47,9 @@ export default function Hero() {
   return (
     <section
       id="inicio"
-      className="relative isolate overflow-hidden border-b border-white/10 bg-background py-20 scroll-mt-24 sm:py-24 lg:py-28"
+      className="relative isolate overflow-hidden border-b border-white/10 bg-[#050505] py-20 scroll-mt-24 sm:py-24 lg:py-28"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(201,165,92,0.12),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.04),transparent_38%)]" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_18%_18%,rgba(201,165,92,0.12),transparent_32%),radial-gradient(circle_at_82%_42%,rgba(201,165,92,0.08),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.035),transparent_38%)]" />
 
       <Container>
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,1.08fr)_minmax(340px,0.92fr)] lg:gap-16">

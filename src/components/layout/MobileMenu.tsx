@@ -25,7 +25,7 @@ export function MobileMenu() {
         <button
           type="button"
           aria-label="Abrir menu"
-          className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/15 text-foreground transition hover:border-primary/50 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:hidden"
+          className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-white/15 text-foreground transition hover:border-primary/50 hover:bg-white/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background lg:hidden"
         >
           <Menu className="h-5 w-5" aria-hidden="true" />
         </button>
@@ -33,11 +33,11 @@ export function MobileMenu() {
 
       <SheetContent
         side="right"
-        className="w-[86%] max-w-sm border-white/10 bg-[#080808] p-0 text-foreground"
+        className="w-[88%] max-w-sm border-white/10 bg-[#090909] p-0 text-foreground"
       >
-        <SheetHeader className="border-b border-white/10 p-6 text-left">
+        <SheetHeader className="border-b border-white/10 p-6 pr-14 text-left">
           <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
-          <Logo />
+          <Logo size="md" />
         </SheetHeader>
 
         <nav className="flex flex-col gap-2 p-6" aria-label="Navegação mobile">
@@ -45,7 +45,7 @@ export function MobileMenu() {
             <SheetClose asChild key={item.label}>
               <Link
                 href={item.href}
-                className="rounded-xl px-4 py-3 text-base font-medium text-muted-foreground transition hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                className="rounded-xl px-4 py-3.5 text-base font-medium text-muted-foreground transition hover:bg-white/5 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
               >
                 {item.label}
               </Link>
@@ -59,7 +59,7 @@ export function MobileMenu() {
               href={ctaHref}
               target={ctaIsExternal ? "_blank" : undefined}
               rel={ctaIsExternal ? "noopener noreferrer" : undefined}
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+              className="inline-flex min-h-[52px] w-full items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
             >
               Solicitar orçamento
             </Link>

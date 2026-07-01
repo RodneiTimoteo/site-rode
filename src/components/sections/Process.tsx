@@ -15,7 +15,7 @@ const icons: Record<ProcessIcon, typeof Search> = {
 
 export default function Process() {
   return (
-    <Section id="processo" className="border-b border-white/10 bg-[#080808] scroll-mt-24">
+    <Section id="processo" className="border-b border-white/10 bg-[#111111] scroll-mt-24">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <SectionTitle
           eyebrow={processSection.eyebrow}

@@ -10,7 +10,7 @@ import { faqItems, faqSection } from "@/data/faq";
 
 export default function FAQ() {
   return (
-    <Section id="faq" className="border-b border-white/10 bg-[#080808] scroll-mt-24">
+    <Section id="faq" className="border-b border-white/10 bg-[#111111] scroll-mt-24">
       <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
         <div>
           <SectionTitle

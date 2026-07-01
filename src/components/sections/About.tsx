@@ -62,7 +62,7 @@ function AboutVisual() {
 
 export default function About() {
   return (
-    <Section id="sobre" className="border-b border-white/10 bg-background scroll-mt-24">
+    <Section id="sobre" className="border-b border-white/10 bg-[#050505] scroll-mt-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_0.86fr] lg:items-start lg:gap-16">
         <div>
           <SectionTitle

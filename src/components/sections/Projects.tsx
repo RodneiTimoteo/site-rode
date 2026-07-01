@@ -72,7 +72,7 @@ function ProjectPreview() {
 
 export default function Projects() {
   return (
-    <Section id="projetos" className="border-b border-white/10 bg-background scroll-mt-24">
+    <Section id="projetos" className="border-b border-white/10 bg-[#050505] scroll-mt-24">
       <SectionTitle
         eyebrow={projectsSection.eyebrow}
         title={projectsSection.title}

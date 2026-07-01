@@ -44,7 +44,7 @@ export default function Contact() {
   return (
     <Section
       id="contato"
-      className="border-b border-white/10 bg-[#080808] scroll-mt-24"
+      className="border-b border-white/10 bg-[#151515] scroll-mt-24"
     >
       <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7 lg:p-9">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
