@@ -11,9 +11,9 @@ export const siteConfig = {
 
   email: "rodneitimoteo.dev@gmail.com",
 
-  phone: "",
+  phone: "(11) 97328-8576",
 
-  whatsapp: "",
+  whatsapp: "5511973288576",
 
   address: {
     city: "Sertânia",

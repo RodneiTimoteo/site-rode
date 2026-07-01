@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/sheet";
 
 const ctaHref = contactInfo.whatsappUrl || "#contato";
+const ctaIsExternal = Boolean(contactInfo.whatsappUrl);
 
 export function MobileMenu() {
   return (
@@ -56,6 +57,8 @@ export function MobileMenu() {
           <SheetClose asChild>
             <Link
               href={ctaHref}
+              target={ctaIsExternal ? "_blank" : undefined}
+              rel={ctaIsExternal ? "noopener noreferrer" : undefined}
               className="inline-flex min-h-12 w-full items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
             >
               Solicitar orçamento

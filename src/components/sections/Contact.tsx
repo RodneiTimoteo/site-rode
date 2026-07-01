@@ -63,7 +63,7 @@ export default function Contact() {
             <a
               href={contactInfo.whatsappUrl}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
             >
               <MessageCircle className="h-5 w-5" aria-hidden="true" />

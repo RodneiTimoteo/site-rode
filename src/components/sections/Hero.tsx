@@ -5,6 +5,7 @@ import { contactInfo } from "@/data/contact";
 import { heroContent } from "@/data/hero";
 
 const primaryActionHref = contactInfo.whatsappUrl || "#contato";
+const primaryActionIsExternal = Boolean(contactInfo.whatsappUrl);
 
 function HeroVisual() {
   return (
@@ -98,6 +99,8 @@ export default function Hero() {
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={primaryActionHref}
+                target={primaryActionIsExternal ? "_blank" : undefined}
+                rel={primaryActionIsExternal ? "noopener noreferrer" : undefined}
                 className="inline-flex min-h-12 items-center justify-center rounded-xl border border-primary/40 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_32px_rgba(201,165,92,0.16)] transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
               >
                 {heroContent.primaryAction.label}

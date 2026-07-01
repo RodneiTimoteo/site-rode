@@ -7,6 +7,7 @@ import { contactInfo } from "@/data/contact";
 import { navigation } from "@/data/navigation";
 
 const ctaHref = contactInfo.whatsappUrl || "#contato";
+const ctaIsExternal = Boolean(contactInfo.whatsappUrl);
 
 export default function Header() {
   return (
@@ -38,6 +39,8 @@ export default function Header() {
         <div className="hidden lg:block">
           <Link
             href={ctaHref}
+            target={ctaIsExternal ? "_blank" : undefined}
+            rel={ctaIsExternal ? "noopener noreferrer" : undefined}
             className="inline-flex min-h-11 items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_32px_rgba(201,165,92,0.16)] transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
           >
             Solicitar orçamento
