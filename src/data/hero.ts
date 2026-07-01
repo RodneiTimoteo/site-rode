@@ -1,5 +1,5 @@
 export const heroContent = {
-  eyebrow: "RODE Soluções Inteligentes",
+  eyebrow: "Sites, automações e soluções digitais",
   title:
     "Sites e automações para tornar sua empresa mais profissional, eficiente e fácil de contratar.",
   description:

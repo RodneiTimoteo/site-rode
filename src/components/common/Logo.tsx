@@ -9,22 +9,22 @@ interface LogoProps {
 
 const sizeClasses = {
   sm: {
-    wrapper: "gap-3",
-    bee: "h-12 w-[4.4rem]",
-    name: "text-3xl",
-    detail: "text-[0.62rem]",
+    wrapper: "gap-2.5",
+    bee: "h-[3.15rem] w-[4.7rem]",
+    name: "text-[2rem]",
+    detail: "text-[0.64rem]",
   },
   md: {
-    wrapper: "gap-3.5",
-    bee: "h-14 w-[5rem]",
-    name: "text-[2.15rem]",
-    detail: "text-xs",
+    wrapper: "gap-3",
+    bee: "h-[3.55rem] w-[5.25rem]",
+    name: "text-[2.32rem]",
+    detail: "text-[0.82rem]",
   },
   lg: {
-    wrapper: "gap-4",
-    bee: "h-[4.25rem] w-[6.1rem]",
-    name: "text-[2.85rem]",
-    detail: "text-[0.94rem]",
+    wrapper: "gap-3.5",
+    bee: "h-[4.45rem] w-[6.55rem]",
+    name: "text-[3.05rem]",
+    detail: "text-[0.98rem]",
   },
 } as const;
 
@@ -45,7 +45,7 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
           src="/images/brand/logoabelha.png"
           alt="Símbolo da RODE Soluções Inteligentes"
           fill
-          sizes="100px"
+          sizes="110px"
           className="object-contain object-left"
           priority
         />
@@ -53,17 +53,21 @@ export default function Logo({ className = "", size = "md" }: LogoProps) {
 
       <span className="flex min-w-0 flex-col justify-center leading-none">
         <span
+          aria-label="RODE"
           className={[
-            "block font-semibold tracking-[0.035em] text-foreground drop-shadow-[0_10px_24px_rgba(0,0,0,0.28)]",
+            "block font-semibold tracking-[0.03em] drop-shadow-[0_10px_24px_rgba(0,0,0,0.28)]",
             classes.name,
           ].join(" ")}
         >
-          RODE
+          <span className="text-foreground" aria-hidden="true">R</span>
+          <span className="text-primary" aria-hidden="true">O</span>
+          <span className="text-foreground" aria-hidden="true">D</span>
+          <span className="text-primary" aria-hidden="true">E</span>
         </span>
 
         <span
           className={[
-            "mt-1 block truncate font-semibold uppercase tracking-[0.18em] text-primary/90",
+            "mt-1 block truncate font-semibold uppercase tracking-[0.14em] text-primary/90",
             classes.detail,
           ].join(" ")}
         >
