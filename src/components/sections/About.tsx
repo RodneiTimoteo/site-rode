@@ -12,8 +12,8 @@ import {
 function AboutVisual() {
   return (
     <div className="relative" aria-hidden="true">
-      <div className="rounded-[2rem] border border-border bg-card p-5 text-card-foreground">
-        <div className="flex items-center justify-between border-b border-border pb-5">
+      <div className="rounded-[2rem] border border-white/10 bg-[#111111] p-5 text-card-foreground">
+        <div className="flex items-center justify-between border-b border-white/10 pb-5">
           <span className="text-3xl font-semibold tracking-normal text-foreground">
             RODE
           </span>
@@ -26,10 +26,10 @@ function AboutVisual() {
           <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
             <div className="mb-4 flex items-center justify-between">
               <span className="h-2 w-20 rounded-full bg-primary/70" />
-              <span className="h-2 w-12 rounded-full bg-white/15" />
+              <span className="h-2 w-12 rounded-full bg-white/[0.15]" />
             </div>
             <div className="space-y-3">
-              <span className="block h-2 rounded-full bg-white/16" />
+              <span className="block h-2 rounded-full bg-white/[0.16]" />
               <span className="block h-2 w-5/6 rounded-full bg-white/10" />
             </div>
           </div>
@@ -50,7 +50,7 @@ function AboutVisual() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-t border-border pt-5">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-t border-white/10 pt-5">
           <span className="h-px bg-white/12" />
           <span className="h-2.5 w-2.5 rounded-full bg-primary" />
           <span className="h-px bg-white/12" />
@@ -82,11 +82,11 @@ export default function About() {
         <AboutVisual />
       </div>
 
-      <div className="mt-14 grid gap-5 md:grid-cols-2">
+      <div className="mt-12 grid gap-5 sm:mt-14 md:grid-cols-2">
         {aboutPeople.map((person) => (
           <article
             key={person.id}
-            className="rounded-3xl border border-border bg-card p-6 text-card-foreground transition duration-300 hover:border-primary/35 hover:bg-secondary sm:p-7"
+            className="rounded-3xl border border-white/10 bg-[#111111] p-6 text-card-foreground transition duration-300 hover:border-primary/30 hover:bg-[#151515] sm:p-7"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
               {person.role}
@@ -101,7 +101,7 @@ export default function About() {
         ))}
       </div>
 
-      <div className="mt-8 rounded-3xl border border-primary/20 bg-primary/[0.055] p-6 sm:p-7">
+      <div className="mt-8 rounded-3xl border border-primary/[0.18] bg-primary/[0.05] p-6 sm:p-7">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
           História da marca
         </p>
@@ -114,7 +114,7 @@ export default function About() {
         {aboutDifferentials.map((item) => (
           <div
             key={item.id}
-            className="flex gap-3 rounded-2xl border border-white/10 bg-white/[0.025] p-5 text-sm leading-6 text-muted-foreground"
+            className="flex gap-3 rounded-2xl border border-white/10 bg-[#111111] p-5 text-sm leading-6 text-muted-foreground"
           >
             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
             <span>{item.title}</span>

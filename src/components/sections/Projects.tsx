@@ -13,9 +13,9 @@ import {
 function ProjectPreview() {
   return (
     <div className="relative" aria-hidden="true">
-      <div className="overflow-hidden rounded-3xl border border-white/10 bg-card p-4 shadow-[0_24px_80px_rgba(0,0,0,0.28)]">
-        <div className="rounded-2xl border border-border bg-[#080808] p-4">
-          <div className="mb-4 flex items-center justify-between border-b border-border pb-4">
+      <div className="overflow-hidden rounded-3xl border border-white/10 bg-[#1A1A1A] p-4 shadow-[0_20px_64px_rgba(0,0,0,0.24)]">
+        <div className="rounded-2xl border border-white/10 bg-[#090909] p-4">
+          <div className="mb-4 flex items-center justify-between border-b border-white/10 pb-4">
             <div className="flex items-center gap-2">
               <span className="h-2.5 w-2.5 rounded-full bg-primary" />
               <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
@@ -41,7 +41,7 @@ function ProjectPreview() {
               </div>
 
               <div className="mt-6 space-y-3">
-                <span className="block h-2 rounded-full bg-white/16" />
+                <span className="block h-2 rounded-full bg-white/[0.16]" />
                 <span className="block h-2 w-5/6 rounded-full bg-white/10" />
                 <span className="block h-2 w-2/3 rounded-full bg-white/10" />
               </div>
@@ -51,7 +51,7 @@ function ProjectPreview() {
               <div className="min-h-64 rounded-[1.5rem] border border-white/10 bg-white/[0.035] p-4">
                 <span className="mb-5 block h-1.5 w-12 rounded-full bg-primary/70" />
                 <span className="block h-3 w-24 rounded-full bg-foreground/75" />
-                <span className="mt-3 block h-2 w-20 rounded-full bg-white/15" />
+                <span className="mt-3 block h-2 w-20 rounded-full bg-white/[0.15]" />
                 <div className="mt-8 space-y-2">
                   <span className="block h-14 rounded-xl bg-white/[0.05]" />
                   <span className="block h-14 rounded-xl bg-primary/[0.08]" />
@@ -82,7 +82,7 @@ export default function Projects() {
 
       <article
         id={featuredProject.detailsHref.replace("#", "")}
-        className="mt-12 grid gap-8 rounded-[2rem] border border-border bg-card p-5 text-card-foreground md:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+        className="mt-10 grid gap-8 rounded-[2rem] border border-white/10 bg-[#111111] p-5 text-card-foreground shadow-[0_18px_60px_rgba(0,0,0,0.22)] md:mt-12 md:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
       >
         <ProjectPreview />
 
@@ -159,7 +159,7 @@ export default function Projects() {
         </div>
       </article>
 
-      <div className="mt-14 border-t border-white/10 pt-10">
+      <div className="mt-12 border-t border-white/10 pt-9 sm:mt-14 sm:pt-10">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
             Conceitos por segmento
@@ -176,7 +176,7 @@ export default function Projects() {
           {segmentConcepts.map((concept) => (
             <article
               key={concept.id}
-              className="rounded-2xl border border-white/10 bg-white/[0.025] p-5"
+              className="rounded-2xl border border-white/10 bg-[#111111] p-5 transition hover:border-primary/25 hover:bg-[#151515]"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
                 Conceito visual

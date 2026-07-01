@@ -28,13 +28,13 @@ export default function FAQ() {
         <Accordion
           type="single"
           collapsible
-          className="rounded-3xl border border-border bg-card p-3 text-card-foreground sm:p-4"
+          className="rounded-3xl border border-white/10 bg-[#1A1A1A] p-3 text-card-foreground shadow-[0_18px_60px_rgba(0,0,0,0.2)] sm:p-4"
         >
           {faqItems.map((item) => (
             <AccordionItem
               key={item.id}
               value={item.id}
-              className="border-white/10 px-2 last:border-b-0 sm:px-3"
+              className="border-white/10 px-2 last:border-b-0 data-[state=open]:bg-white/[0.018] sm:px-3"
             >
               <AccordionTrigger className="py-5 text-left text-base font-semibold leading-6 text-card-foreground hover:text-primary hover:no-underline focus-visible:ring-primary/70 sm:text-lg">
                 {item.question}

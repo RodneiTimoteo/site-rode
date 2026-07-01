@@ -46,7 +46,7 @@ export default function Contact() {
       id="contato"
       className="border-b border-white/10 bg-[#151515] scroll-mt-24"
     >
-      <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7 lg:p-9">
+      <div className="rounded-[2rem] border border-white/10 bg-[#1A1A1A] p-5 shadow-[0_22px_72px_rgba(0,0,0,0.26)] sm:p-7 lg:p-9">
         <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
           <div className="max-w-3xl">
             <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
@@ -112,7 +112,7 @@ export default function Contact() {
           </div>
 
           <aside
-            className="rounded-3xl border border-white/10 bg-card p-5 text-card-foreground sm:p-6"
+            className="rounded-3xl border border-white/10 bg-[#151515] p-5 text-card-foreground sm:p-6"
             aria-label="Canais de contato da RODE"
           >
             <div className="mb-6 border-b border-white/10 pb-5">
@@ -139,7 +139,7 @@ export default function Contact() {
                     href={channel.href}
                     target={channel.external ? "_blank" : undefined}
                     rel={channel.external ? "noopener noreferrer" : undefined}
-                    className="group flex min-h-20 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition hover:border-primary/35 hover:bg-white/[0.045] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                    className="group flex min-h-20 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 transition hover:border-primary/35 hover:bg-white/[0.055] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                   >
                     <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/[0.08] text-primary">
                       <Icon className="h-5 w-5" aria-hidden="true" />

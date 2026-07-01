@@ -12,8 +12,8 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/10 bg-[#050505] text-foreground">
-      <Container className="py-14 sm:py-16">
+    <footer className="border-t border-white/12 bg-[#050505] text-foreground">
+      <Container className="py-12 sm:py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_0.8fr_1fr] lg:gap-14">
           <div>
             <Logo size="lg" />

@@ -19,7 +19,7 @@ export default function Features() {
         </p>
       </div>
 
-      <div className="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-2 lg:grid-cols-3">
         {solutions.map((solution) => (
           <FeatureCard key={solution.id} solution={solution} />
         ))}

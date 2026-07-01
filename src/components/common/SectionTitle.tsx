@@ -34,17 +34,17 @@ export default function SectionTitle({
   return (
     <div className={`flex max-w-3xl flex-col ${alignment}`}>
       {eyebrow && (
-        <p className={`mb-4 text-sm font-semibold uppercase tracking-[0.14em] ${colors.eyebrow}`}>
+        <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.14em] sm:mb-4 sm:text-sm ${colors.eyebrow}`}>
           {eyebrow}
         </p>
       )}
 
-      <h2 className={`text-4xl font-bold tracking-normal ${colors.title} sm:text-5xl`}>
+      <h2 className={`text-3xl font-bold tracking-normal sm:text-4xl lg:text-5xl ${colors.title}`}>
         {title}
       </h2>
 
       {description && (
-        <p className={`mt-5 text-lg leading-8 ${colors.description}`}>
+        <p className={`mt-4 text-base leading-7 sm:mt-5 sm:text-lg sm:leading-8 ${colors.description}`}>
           {description}
         </p>
       )}
