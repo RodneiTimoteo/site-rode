@@ -1,162 +1,167 @@
 import {
+  AtSign,
   Mail,
   MapPin,
   MessageCircle,
-  Phone,
+  MonitorCheck,
 } from "lucide-react";
 
-import SectionTitle from "@/components/common/SectionTitle";
 import Section from "@/components/layout/Section";
 import { contactInfo } from "@/data/contact";
+import { siteConfig } from "@/data/site";
+
+const locationText = `${siteConfig.address.city}, Pernambuco`;
+const serviceText = "Atendimento local e remoto para todo o Brasil";
+
+const contactChannels = [
+  {
+    label: "WhatsApp",
+    value: contactInfo.phone,
+    helper: "Converse diretamente com a RODE",
+    href: contactInfo.whatsappUrl,
+    icon: MessageCircle,
+    external: true,
+  },
+  {
+    label: "E-mail",
+    value: contactInfo.email,
+    helper: "Envie sua mensagem com calma",
+    href: contactInfo.emailUrl,
+    icon: Mail,
+    external: false,
+  },
+  {
+    label: "Instagram",
+    value: siteConfig.social.instagramUser,
+    helper: "Acompanhe a RODE nas redes",
+    href: siteConfig.social.instagram,
+    icon: AtSign,
+    external: true,
+  },
+] as const;
 
 export default function Contact() {
   return (
-    <Section id="contato" className="bg-slate-50">
-      <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-        <div>
-          <SectionTitle
-            eyebrow="Contato"
-            title="Vamos conversar sobre o seu próximo projeto."
-            description="Entre em contato pelos canais abaixo ou envie uma mensagem pelo formulário."
-          />
+    <Section
+      id="contato"
+      className="border-b border-white/10 bg-[#080808] scroll-mt-24"
+    >
+      <div className="rounded-[2rem] border border-white/10 bg-white/[0.025] p-5 shadow-[0_24px_80px_rgba(0,0,0,0.22)] sm:p-7 lg:p-9">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-14">
+          <div className="max-w-3xl">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-[0.14em] text-primary">
+              Vamos conversar
+            </p>
 
-          <div className="mt-10 space-y-5">
-            <a
-              href={`mailto:${contactInfo.email}`}
-              className="flex items-center gap-4 text-slate-700 transition hover:text-slate-950"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
-                <Mail className="h-5 w-5" aria-hidden="true" />
-              </span>
+            <h2 className="max-w-3xl text-4xl font-bold tracking-normal text-foreground sm:text-5xl">
+              Sua empresa precisa de uma presença digital mais profissional?
+            </h2>
 
-              <span>
-                <span className="block text-sm text-slate-500">E-mail</span>
-                <span className="font-medium">{contactInfo.email}</span>
-              </span>
-            </a>
+            <p className="mt-5 max-w-2xl text-lg leading-8 text-muted-foreground">
+              Conte o que você deseja melhorar. A RODE analisa sua necessidade
+              e orienta qual solução faz mais sentido para o seu momento.
+            </p>
 
-            <a
-              href={`tel:${contactInfo.phone.replace(/\D/g, "")}`}
-              className="flex items-center gap-4 text-slate-700 transition hover:text-slate-950"
-            >
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
-                <Phone className="h-5 w-5" aria-hidden="true" />
-              </span>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <a
+                href={contactInfo.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground shadow-[0_12px_32px_rgba(201,165,92,0.14)] transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              >
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+                Solicitar diagnóstico
+              </a>
 
-              <span>
-                <span className="block text-sm text-slate-500">Telefone</span>
-                <span className="font-medium">{contactInfo.phone}</span>
-              </span>
-            </a>
-
-            <div className="flex items-center gap-4 text-slate-700">
-              <span className="flex h-11 w-11 items-center justify-center rounded-xl bg-white shadow-sm">
-                <MapPin className="h-5 w-5" aria-hidden="true" />
-              </span>
-
-              <span>
-                <span className="block text-sm text-slate-500">Localização</span>
-                <span className="font-medium">{contactInfo.location}</span>
-              </span>
+              <a
+                href={contactInfo.emailUrl}
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              >
+                <Mail className="h-4 w-4" aria-hidden="true" />
+                Enviar e-mail
+              </a>
             </div>
 
-            <a
-              href={contactInfo.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-            >
-              <MessageCircle className="h-5 w-5" aria-hidden="true" />
-              Conversar pelo WhatsApp
-            </a>
+            <div className="mt-10 grid gap-4 border-t border-white/10 pt-6 sm:grid-cols-2">
+              <div className="flex gap-3 text-sm leading-6 text-muted-foreground">
+                <MapPin
+                  className="mt-1 h-4 w-4 shrink-0 text-primary"
+                  aria-hidden="true"
+                />
+                <span>
+                  <span className="block font-semibold text-foreground">
+                    Localização
+                  </span>
+                  {locationText}
+                </span>
+              </div>
+
+              <div className="flex gap-3 text-sm leading-6 text-muted-foreground">
+                <MonitorCheck
+                  className="mt-1 h-4 w-4 shrink-0 text-primary"
+                  aria-hidden="true"
+                />
+                <span>
+                  <span className="block font-semibold text-foreground">
+                    Atendimento
+                  </span>
+                  {serviceText}
+                </span>
+              </div>
+            </div>
           </div>
+
+          <aside
+            className="rounded-3xl border border-white/10 bg-card p-5 text-card-foreground sm:p-6"
+            aria-label="Canais de contato da RODE"
+          >
+            <div className="mb-6 border-b border-white/10 pb-5">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+                Canais diretos
+              </p>
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                Escolha o canal que for mais confortável para iniciar a
+                conversa.
+              </p>
+            </div>
+
+            <div className="grid gap-3">
+              {contactChannels.map((channel) => {
+                const Icon = channel.icon;
+
+                if (!channel.value || !channel.href) {
+                  return null;
+                }
+
+                return (
+                  <a
+                    key={channel.label}
+                    href={channel.href}
+                    target={channel.external ? "_blank" : undefined}
+                    rel={channel.external ? "noopener noreferrer" : undefined}
+                    className="group flex min-h-20 items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.025] p-4 transition hover:border-primary/35 hover:bg-white/[0.045] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                  >
+                    <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-primary/25 bg-primary/[0.08] text-primary">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </span>
+
+                    <span className="min-w-0">
+                      <span className="block text-sm text-muted-foreground">
+                        {channel.label}
+                      </span>
+                      <span className="mt-1 block break-words font-semibold text-card-foreground">
+                        {channel.value}
+                      </span>
+                      <span className="mt-1 block text-xs leading-5 text-muted-foreground">
+                        {channel.helper}
+                      </span>
+                    </span>
+                  </a>
+                );
+              })}
+            </div>
+          </aside>
         </div>
-
-        <form className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="name"
-                className="mb-2 block text-sm font-medium text-slate-700"
-              >
-                Nome
-              </label>
-
-              <input
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Digite seu nome"
-                className="min-h-12 w-full rounded-xl border border-slate-300 px-4 outline-none transition focus:border-slate-950"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="email"
-                className="mb-2 block text-sm font-medium text-slate-700"
-              >
-                E-mail
-              </label>
-
-              <input
-                id="email"
-                name="email"
-                type="email"
-                placeholder="seuemail@exemplo.com"
-                className="min-h-12 w-full rounded-xl border border-slate-300 px-4 outline-none transition focus:border-slate-950"
-              />
-            </div>
-
-            <div>
-              <label
-                htmlFor="phone"
-                className="mb-2 block text-sm font-medium text-slate-700"
-              >
-                Telefone
-              </label>
-
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                placeholder="(00) 00000-0000"
-                className="min-h-12 w-full rounded-xl border border-slate-300 px-4 outline-none transition focus:border-slate-950"
-              />
-            </div>
-
-            <div className="sm:col-span-2">
-              <label
-                htmlFor="message"
-                className="mb-2 block text-sm font-medium text-slate-700"
-              >
-                Mensagem
-              </label>
-
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                placeholder="Conte um pouco sobre o projeto"
-                className="w-full resize-none rounded-xl border border-slate-300 px-4 py-3 outline-none transition focus:border-slate-950"
-              />
-            </div>
-
-            <div className="sm:col-span-2">
-              <button
-                type="submit"
-                className="inline-flex min-h-12 w-full items-center justify-center rounded-xl bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Enviar mensagem
-              </button>
-            </div>
-          </div>
-
-          <p className="mt-4 text-sm leading-6 text-slate-500">
-            Este formulário ainda é visual. A integração de envio será
-            configurada posteriormente.
-          </p>
-        </form>
       </div>
     </Section>
   );

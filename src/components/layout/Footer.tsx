@@ -73,7 +73,7 @@ export default function Footer() {
                     href={url}
                     aria-label={`Abrir ${name} da RODE em uma nova aba`}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                     className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/10 px-3 text-sm font-medium text-muted-foreground transition hover:border-primary/50 hover:bg-white/5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
                   >
                     <span>{username || name}</span>
