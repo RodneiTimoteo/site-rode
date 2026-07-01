@@ -5,7 +5,7 @@ import { solutions, solutionsSection } from "@/data/solutions";
 
 export default function Features() {
   return (
-    <Section id="solucoes" className="border-b border-white/10 bg-[#111111] scroll-mt-24">
+    <Section id="solucoes" className="border-b border-white/10 bg-[#181818] scroll-mt-24">
       <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
         <SectionTitle
           eyebrow={solutionsSection.eyebrow}

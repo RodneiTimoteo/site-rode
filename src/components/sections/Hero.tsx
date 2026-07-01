@@ -10,7 +10,7 @@ const primaryActionIsExternal = Boolean(contactInfo.whatsappUrl);
 
 function HeroVisual() {
   return (
-    <div className="relative mx-auto mt-10 w-full max-w-sm sm:max-w-md lg:mt-0 lg:max-w-[27rem] xl:max-w-[29rem]">
+    <div className="relative mx-auto hidden w-full max-w-sm sm:max-w-md lg:mt-0 lg:block lg:max-w-[27rem] xl:max-w-[29rem]" aria-hidden="true">
       <div
         className="absolute left-1/2 top-1/2 h-56 w-56 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/[0.10] blur-3xl sm:h-72 sm:w-72"
         aria-hidden="true"
@@ -39,7 +39,7 @@ function HeroVisual() {
 
           <Image
             src="/images/brand/logoabelha.png"
-            alt="Abelha da identidade visual da RODE Soluções Inteligentes"
+            alt=""
             width={1536}
             height={1024}
             priority

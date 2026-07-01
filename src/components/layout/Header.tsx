@@ -18,9 +18,15 @@ export default function Header() {
           aria-label="Ir para o início"
           className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
         >
-          <Logo size="sm" className="sm:hidden" />
-          <Logo size="md" className="hidden sm:inline-flex xl:hidden" />
-          <Logo size="lg" className="hidden xl:inline-flex" />
+          <span className="sm:hidden">
+            <Logo size="sm" />
+          </span>
+          <span className="hidden sm:inline-flex xl:hidden">
+            <Logo size="md" />
+          </span>
+          <span className="hidden xl:inline-flex">
+            <Logo size="lg" />
+          </span>
         </Link>
 
         <nav

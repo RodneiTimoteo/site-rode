@@ -16,7 +16,7 @@ export default function FeatureCard({ solution }: FeatureCardProps) {
   const Icon = icons[solution.icon];
 
   return (
-    <article className="group flex h-full flex-col rounded-3xl border border-white/10 bg-[#1A1A1A] p-6 text-card-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-[#202020] sm:p-7">
+    <article className="group flex h-full flex-col rounded-3xl border border-white/[0.12] bg-[#202020] p-6 text-card-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-[#242424] sm:p-7">
       <div className="flex items-start justify-between gap-5">
         <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/30 bg-primary/[0.075] text-primary">
           <Icon className="h-5 w-5" aria-hidden="true" />

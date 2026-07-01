@@ -10,7 +10,7 @@ import { faqItems, faqSection } from "@/data/faq";
 
 export default function FAQ() {
   return (
-    <Section id="faq" className="border-b border-white/10 bg-[#111111] scroll-mt-24">
+    <Section id="faq" className="border-b border-white/10 bg-[#181818] scroll-mt-24">
       <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
         <div>
           <SectionTitle
@@ -28,13 +28,13 @@ export default function FAQ() {
         <Accordion
           type="single"
           collapsible
-          className="rounded-3xl border border-white/10 bg-[#1A1A1A] p-3 text-card-foreground shadow-[0_18px_60px_rgba(0,0,0,0.2)] sm:p-4"
+          className="rounded-3xl border border-white/10 bg-[#202020] p-3 text-card-foreground shadow-[0_18px_60px_rgba(0,0,0,0.2)] sm:p-4"
         >
           {faqItems.map((item) => (
             <AccordionItem
               key={item.id}
               value={item.id}
-              className="border-white/10 px-2 last:border-b-0 data-[state=open]:bg-white/[0.018] sm:px-3"
+              className="border-white/10 px-2 last:border-b-0 data-[state=open]:bg-white/[0.025] sm:px-3"
             >
               <AccordionTrigger className="py-5 text-left text-base font-semibold leading-6 text-card-foreground hover:text-primary hover:no-underline focus-visible:ring-primary/70 sm:text-lg">
                 {item.question}
