@@ -22,7 +22,7 @@ function ProjectPreview() {
               <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
             </div>
             <span className="rounded-full border border-primary/25 px-3 py-1 text-[0.65rem] uppercase tracking-[0.14em] text-primary">
-              Prévia provisória
+              Visão do projeto
             </span>
           </div>
 
@@ -62,10 +62,6 @@ function ProjectPreview() {
           </div>
         </div>
       </div>
-
-      <p className="mt-3 text-center text-xs text-muted-foreground">
-        Moldura provisória até a inclusão das imagens reais do projeto.
-      </p>
     </div>
   );
 }
@@ -142,11 +138,7 @@ export default function Projects() {
                 {featuredProject.primaryLink.label}
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
               </Link>
-            ) : (
-              <span className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-muted-foreground">
-                Link em confirmação
-              </span>
-            )}
+            ) : null}
 
             <Link
               href={featuredProject.detailsHref}
