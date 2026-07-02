@@ -4,10 +4,11 @@ export interface ProjectLink {
 }
 
 export interface ProjectImage {
-  desktop?: string;
-  mobile?: string;
-  alt?: string;
-  isPlaceholder: boolean;
+  src: string;
+  alt: string;
+  label: string;
+  fit: "contain" | "cover";
+  objectPosition: string;
 }
 
 export interface FeaturedProject {
@@ -20,7 +21,7 @@ export interface FeaturedProject {
   status: string;
   primaryLink?: ProjectLink;
   detailsHref: string;
-  image: ProjectImage;
+  images: ProjectImage[];
 }
 
 export interface SegmentConcept {
@@ -36,7 +37,7 @@ export const projectsSection = {
     "Cada projeto é planejado de acordo com os objetivos, o público e a identidade de cada cliente.",
 } as const;
 
-export const featuredProject = {
+export const featuredProject: FeaturedProject = {
   id: "camila-timoteo-vieira",
   client: "Camila Timóteo Vieira",
   category: "Portfólio executivo",
@@ -47,10 +48,44 @@ export const featuredProject = {
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   status: "Projeto publicado",
   detailsHref: "#case-camila-timoteo-vieira",
-  image: {
-    isPlaceholder: true,
-  },
-} satisfies FeaturedProject;
+  images: [
+    {
+      src: "/images/projects/camila/hero.jpeg",
+      alt: "Página inicial do portfólio executivo de Camila Timóteo Vieira",
+      label: "Página inicial",
+      fit: "contain",
+      objectPosition: "center",
+    },
+    {
+      src: "/images/projects/camila/sobre.jpeg",
+      alt: "Seção sobre a trajetória profissional de Camila Timóteo Vieira",
+      label: "Trajetória profissional",
+      fit: "contain",
+      objectPosition: "center",
+    },
+    {
+      src: "/images/projects/camila/conquistas.jpeg",
+      alt: "Seção de conquistas e reconhecimentos profissionais de Camila Timóteo Vieira",
+      label: "Conquistas e reconhecimento",
+      fit: "contain",
+      objectPosition: "center",
+    },
+    {
+      src: "/images/projects/camila/canais.jpeg",
+      alt: "Seção de conteúdos, redes sociais e comunidades do site de Camila",
+      label: "Conteúdo e comunidades",
+      fit: "contain",
+      objectPosition: "center",
+    },
+    {
+      src: "/images/projects/camila/final.jpeg",
+      alt: "Seção final de contato e rodapé do portfólio de Camila Timóteo Vieira",
+      label: "Contato e encerramento",
+      fit: "contain",
+      objectPosition: "center",
+    },
+  ],
+};
 
 export const segmentConcepts = [
   {
