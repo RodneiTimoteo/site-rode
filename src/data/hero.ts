@@ -1,19 +1,19 @@
 export const heroContent = {
   eyebrow: "Sites, automações e soluções digitais",
   title:
-    "Sites e automações para tornar sua empresa mais profissional, eficiente e fácil de contratar.",
+    "Soluções digitais para sua empresa ser encontrada, compreendida e contatada.",
   description:
-    "A RODE desenvolve sites, landing pages e soluções digitais personalizadas para fortalecer sua presença online, melhorar o atendimento e simplificar processos.",
+    "A RODE cria sites e landing pages, conecta formulários a ferramentas de trabalho e automatiza tarefas para tornar o atendimento mais claro e a rotina mais organizada.",
   primaryAction: {
-    label: "Solicitar diagnóstico",
+    label: "Conversar sobre meu projeto",
   },
   secondaryAction: {
     label: "Conhecer projetos",
     href: "#projetos",
   },
   trustItems: [
-    "Atendimento em Sertânia e em todo o Brasil",
-    "Projetos personalizados",
-    "Suporte após a publicação",
+    "Atendimento direto com quem desenvolve",
+    "Escopo definido antes do início",
+    "Suporte e manutenção opcionais",
   ],
 } as const;

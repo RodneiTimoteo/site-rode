@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "RODE",
 
   description:
-    "A RODE Soluções Inteligentes desenvolve sites profissionais, landing pages e automações personalizadas para empresas que desejam fortalecer sua presença digital, melhorar o atendimento e otimizar processos.",
+    "A RODE Soluções Inteligentes desenvolve sites, landing pages, integrações e automações para empresas que desejam apresentar melhor seus serviços, organizar o atendimento e simplificar processos.",
 
   url: "https://rodesolucoes.com.br",
 
@@ -42,7 +42,7 @@ export const siteConfig = {
     title: "RODE Soluções Inteligentes | Sites, Landing Pages e Automações",
 
     description:
-      "Sites profissionais, landing pages e automações personalizadas para empresas e profissionais. Atendimento em Sertânia, Pernambuco, e em todo o Brasil.",
+      "Sites, landing pages, formulários, integrações e automações para empresas e profissionais. Atendimento em Sertânia, Pernambuco, e em todo o Brasil.",
 
     keywords: [
       "criação de sites",
@@ -56,7 +56,8 @@ export const siteConfig = {
       "RODE Soluções Inteligentes",
       "portfólios profissionais",
       "consultoria em tecnologia",
-      "inteligência artificial para empresas",
+      "manutenção de sites",
+      "formulários para sites",
     ],
   },
 } as const;

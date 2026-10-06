@@ -9,10 +9,10 @@ interface LogoProps {
 
 const sizeClasses = {
   sm: {
-    wrapper: "gap-2.5",
-    bee: "h-[3.15rem] w-[4.7rem]",
-    name: "text-[2rem]",
-    detail: "text-[0.64rem]",
+    wrapper: "gap-2",
+    bee: "h-[2.8rem] w-[4.15rem]",
+    name: "text-[1.65rem]",
+    detail: "text-[0.5rem]",
   },
   md: {
     wrapper: "gap-3",

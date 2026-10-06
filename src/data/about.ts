@@ -12,15 +12,14 @@ export interface AboutDifferential {
 
 export const aboutSection = {
   eyebrow: "Sobre a RODE",
-  title: "Tecnologia com organização, proximidade e propósito",
+  title: "Quem atende e como o trabalho é conduzido",
   description:
-    "A RODE Soluções Inteligentes desenvolve projetos digitais personalizados para empresas e profissionais que desejam crescer com mais presença, eficiência e clareza.",
+    "A RODE une desenvolvimento, organização e identidade de marca para transformar uma necessidade de negócio em uma solução clara e funcional.",
 } as const;
 
 export const aboutContent = {
   paragraphs: [
-    "A RODE nasceu para transformar necessidades reais de negócios em soluções digitais claras, profissionais e funcionais. Cada projeto é desenvolvido de forma personalizada, com atenção à identidade do cliente, aos objetivos da empresa e à experiência de quem utiliza a solução.",
-    "O trabalho combina planejamento, design, desenvolvimento e automação, sempre com comunicação direta durante todas as etapas e orientação também após a publicação.",
+    "Cada projeto começa com uma conversa para entender o objetivo, o público e o problema a resolver. A partir disso, a RODE organiza o escopo, desenvolve a solução, apresenta a versão para revisão e orienta os próximos passos até a publicação.",
   ],
   brandStory:
     "O nome RODE une Rodnei e Débora. A referência à abelha representa organização, trabalho em equipe, dedicação e construção — valores que orientam a forma como cada projeto é planejado e desenvolvido.",

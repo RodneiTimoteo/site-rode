@@ -1,4 +1,4 @@
-export type SolutionIcon = "layout" | "workflow" | "strategy";
+export type SolutionIcon = "layout" | "integration" | "workflow" | "support";
 
 export interface Solution {
   id: string;
@@ -7,13 +7,14 @@ export interface Solution {
   title: string;
   description: string;
   items: string[];
+  whatsappMessage: string;
 }
 
 export const solutionsSection = {
   eyebrow: "Soluções",
   title: "Tecnologia aplicada às necessidades reais da sua empresa",
   description:
-    "Desenvolvemos soluções digitais personalizadas para fortalecer sua presença online, simplificar processos e melhorar a experiência dos seus clientes.",
+    "Escolha o ponto que mais se aproxima da sua necessidade. A conversa inicial serve para entender o cenário e definir um escopo adequado.",
 } as const;
 
 export const solutions = [
@@ -23,40 +24,62 @@ export const solutions = [
     icon: "layout",
     title: "Sites e landing pages",
     description:
-      "Projetos profissionais, responsivos e personalizados para apresentar sua empresa, fortalecer sua marca e facilitar o contato de novos clientes.",
+      "Para apresentar sua empresa e seus serviços com clareza, funcionar bem no celular e conduzir o visitante até o contato.",
     items: [
       "Sites institucionais",
-      "Landing pages de alta conversão",
+      "Landing pages para serviços e campanhas",
       "Portfólios profissionais",
       "Integração com WhatsApp e redes sociais",
     ],
+    whatsappMessage:
+      "Olá! Conheci a RODE pelo site e quero conversar sobre um site ou landing page. Meu objetivo é: [conte brevemente o que você precisa].",
   },
   {
-    id: "automacoes-integracoes",
+    id: "formularios-integracoes",
     number: "02",
-    icon: "workflow",
-    title: "Automações e integrações",
+    icon: "integration",
+    title: "Formulários e integrações",
     description:
-      "Conectamos ferramentas e automatizamos tarefas repetitivas para tornar o atendimento e a operação da empresa mais organizados e eficientes.",
+      "Para receber solicitações de forma organizada e conectar o site aos canais e às ferramentas já usadas pela empresa.",
     items: [
-      "Automação de atendimento",
-      "Formulários e captação de leads",
-      "Integrações com WhatsApp, e-mail e CRM",
-      "Organização de processos internos",
+      "Formulários de contato e captação",
+      "Encaminhamento por e-mail",
+      "Integrações com WhatsApp e CRM",
+      "Conexão com outras ferramentas previstas no projeto",
     ],
+    whatsappMessage:
+      "Olá! Conheci a RODE pelo site e quero conversar sobre formulários ou integrações. Hoje preciso conectar: [descreva as ferramentas ou o fluxo].",
   },
   {
-    id: "consultoria-ia",
+    id: "automacoes-processos",
     number: "03",
-    icon: "strategy",
-    title: "Consultoria e soluções com IA",
+    icon: "workflow",
+    title: "Automações de processos",
     description:
-      "Analisamos necessidades, processos e oportunidades para desenvolver soluções digitais sob medida para cada negócio.",
+      "Para reduzir tarefas repetitivas e organizar etapas de atendimento ou operação que hoje dependem de trabalho manual.",
     items: [
       "Diagnóstico de processos",
-      "Agentes e assistentes de IA",
-      "Soluções personalizadas",
-      "Orientação tecnológica para empresas",
+      "Mapeamento de tarefas repetitivas",
+      "Automação de etapas definidas no escopo",
+      "Soluções ajustadas à rotina da empresa",
     ],
+    whatsappMessage:
+      "Olá! Conheci a RODE pelo site e quero conversar sobre uma automação. A tarefa que desejo simplificar é: [descreva como funciona hoje].",
+  },
+  {
+    id: "manutencao-suporte",
+    number: "04",
+    icon: "support",
+    title: "Manutenção e suporte",
+    description:
+      "Para manter um site atualizado, corrigir problemas e contar com acompanhamento técnico depois da publicação.",
+    items: [
+      "Atualizações de conteúdo",
+      "Ajustes e correções",
+      "Acompanhamento técnico",
+      "Manutenção contratada conforme a necessidade",
+    ],
+    whatsappMessage:
+      "Olá! Conheci a RODE pelo site e quero conversar sobre manutenção ou suporte para um site. Preciso de ajuda com: [descreva o problema ou atualização].",
   },
 ] satisfies Solution[];

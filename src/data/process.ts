@@ -17,7 +17,7 @@ export const processSection = {
   eyebrow: "Como funciona",
   title: "Um processo claro do diagnóstico à publicação",
   description:
-    "Cada projeto é conduzido em etapas bem definidas, com comunicação direta, revisões e acompanhamento durante todo o desenvolvimento.",
+    "Você acompanha as decisões principais e sabe o que acontece em cada etapa, da conversa inicial à entrega.",
 } as const;
 
 export const processSteps = [

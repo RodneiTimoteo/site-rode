@@ -22,7 +22,7 @@ export default function Footer() {
               {siteConfig.description}
             </p>
 
-            <p className="mt-4 max-w-lg text-sm leading-6 text-muted-foreground/80">
+            <p className="mt-4 max-w-lg text-sm leading-6 text-muted-foreground">
               {contactInfo.serviceText}
             </p>
           </div>
@@ -97,7 +97,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-muted-foreground/80 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>

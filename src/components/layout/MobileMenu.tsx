@@ -37,7 +37,7 @@ export function MobileMenu() {
       >
         <SheetHeader className="border-b border-white/10 p-6 pr-14 text-left">
           <SheetTitle className="sr-only">Menu de navegação</SheetTitle>
-          <Logo size="md" />
+          <Logo size="sm" />
         </SheetHeader>
 
         <nav className="flex flex-col gap-2 p-6" aria-label="Navegação mobile">
@@ -61,7 +61,7 @@ export function MobileMenu() {
               rel={ctaIsExternal ? "noopener noreferrer" : undefined}
               className="inline-flex min-h-[52px] w-full items-center justify-center rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
             >
-              Solicitar orçamento
+              Conversar sobre meu projeto
             </Link>
           </SheetClose>
         </div>

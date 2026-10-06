@@ -15,11 +15,11 @@ export default function Features() {
         />
 
         <p className="max-w-xl text-sm leading-7 text-muted-foreground lg:justify-self-end">
-          Cada solução é planejada a partir da realidade da empresa, com foco em clareza, atendimento e processos mais organizados.
+          Não é preciso chegar com a solução pronta: descreva o problema, as ferramentas que usa e o resultado que espera alcançar.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-5 sm:mt-12 md:grid-cols-2">
         {solutions.map((solution) => (
           <FeatureCard key={solution.id} solution={solution} />
         ))}

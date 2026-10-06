@@ -1,15 +1,20 @@
 import Link from "next/link";
-import { ArrowDown, ExternalLink } from "lucide-react";
+import { ExternalLink, MessageCircle } from "lucide-react";
 
 import SectionTitle from "@/components/common/SectionTitle";
 import ProjectCarousel from "@/components/projects/ProjectCarousel";
 import Section from "@/components/layout/Section";
+import { buildWhatsAppUrl } from "@/data/contact";
 import {
   featuredProject,
   projectsSection,
   segmentConcepts,
   segmentConceptsIntro,
 } from "@/data/projects";
+
+const projectContactUrl = buildWhatsAppUrl(
+  "Olá! Conheci a RODE pelo site e quero conversar sobre um projeto digital. Meu objetivo é: [conte brevemente o que você precisa].",
+);
 
 export default function Projects() {
   return (
@@ -33,7 +38,7 @@ export default function Projects() {
               {featuredProject.status}
             </span>
             <span className="text-sm text-muted-foreground">
-              Projeto realizado
+              Caso real de cliente
             </span>
           </div>
 
@@ -85,13 +90,17 @@ export default function Projects() {
               </Link>
             ) : null}
 
-            <Link
-              href={featuredProject.detailsHref}
-              className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
-            >
-              Ver detalhes
-              <ArrowDown className="h-4 w-4" aria-hidden="true" />
-            </Link>
+            {projectContactUrl && (
+              <Link
+                href={projectContactUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+              >
+                Conversar sobre um projeto
+                <MessageCircle className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            )}
           </div>
         </div>
       </article>
@@ -99,7 +108,7 @@ export default function Projects() {
       <div className="mt-12 border-t border-white/10 pt-9 sm:mt-14 sm:pt-10">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-            Conceitos por segmento
+            Estudos não publicados
           </p>
           <h3 className="mt-3 text-2xl font-semibold text-foreground">
             {segmentConceptsIntro.title}

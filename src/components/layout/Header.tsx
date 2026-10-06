@@ -51,7 +51,7 @@ export default function Header() {
             rel={ctaIsExternal ? "noopener noreferrer" : undefined}
             className="inline-flex min-h-[54px] whitespace-nowrap items-center justify-center rounded-xl border border-primary/40 bg-primary px-7 py-3 text-[0.95rem] font-semibold text-primary-foreground shadow-[0_14px_36px_rgba(201,165,92,0.2)] transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background xl:px-8"
           >
-            Solicitar orçamento
+            Conversar sobre meu projeto
           </Link>
         </div>
 

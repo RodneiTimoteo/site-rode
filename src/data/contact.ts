@@ -1,11 +1,17 @@
 import { siteConfig } from "@/data/site";
 
-const whatsappMessage =
-  "Olá! Conheci a RODE pelo site e gostaria de conversar sobre uma solução para minha empresa.";
+export function buildWhatsAppUrl(message: string) {
+  return siteConfig.whatsapp
+    ? `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(message)}`
+    : "";
+}
 
-const emailSubject = "Solicitação de diagnóstico - RODE Soluções Inteligentes";
+const whatsappMessage =
+  "Olá! Conheci a RODE pelo site e quero conversar sobre meu projeto. Procuro ajuda com: [conte brevemente o que você precisa].";
+
+const emailSubject = "Conversa sobre projeto - RODE Soluções Inteligentes";
 const emailBody =
-  "Olá! Conheci a RODE pelo site e gostaria de conversar sobre uma solução para minha empresa.";
+  "Olá! Conheci a RODE pelo site e quero conversar sobre meu projeto.\n\nO que preciso: ";
 
 const emailUrl = `mailto:${siteConfig.email}?subject=${encodeURIComponent(
   emailSubject,
@@ -22,7 +28,5 @@ export const contactInfo = {
   serviceText:
     "Atendimento em Sertânia, região e remotamente em todo o Brasil.",
   whatsappMessage,
-  whatsappUrl: siteConfig.whatsapp
-    ? `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(whatsappMessage)}`
-    : "",
+  whatsappUrl: buildWhatsAppUrl(whatsappMessage),
 } as const;

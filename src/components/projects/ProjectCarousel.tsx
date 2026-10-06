@@ -2,7 +2,7 @@
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 
 import {
   Carousel,
@@ -16,32 +16,15 @@ interface ProjectCarouselProps {
   images: ProjectImage[];
 }
 
-const AUTOPLAY_DELAY = 5000;
-const RESUME_DELAY = 7000;
-
-function usePrefersReducedMotion() {
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const updatePreference = () => setPrefersReducedMotion(query.matches);
-
-    updatePreference();
-    query.addEventListener("change", updatePreference);
-
-    return () => query.removeEventListener("change", updatePreference);
-  }, []);
-
-  return prefersReducedMotion;
-}
+const carouselOptions = {
+  align: "start",
+  loop: true,
+  duration: 28,
+} as const;
 
 export default function ProjectCarousel({ images }: ProjectCarouselProps) {
   const [api, setApi] = useState<CarouselApi>();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const prefersReducedMotion = usePrefersReducedMotion();
-  const resumeTimeoutRef = useRef<number | null>(null);
-  const autoplayTimeoutRef = useRef<number | null>(null);
   const slideCount = images.length;
 
   const currentImage = images[currentIndex];
@@ -54,123 +37,25 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
     [currentIndex, slideCount],
   );
 
-  const clearResumeTimer = useCallback(() => {
-    if (resumeTimeoutRef.current) {
-      window.clearTimeout(resumeTimeoutRef.current);
-      resumeTimeoutRef.current = null;
-    }
-  }, []);
-
-  const clearAutoplayTimer = useCallback(() => {
-    if (autoplayTimeoutRef.current) {
-      window.clearTimeout(autoplayTimeoutRef.current);
-      autoplayTimeoutRef.current = null;
-    }
-  }, []);
-
-  const pauseAutoplay = useCallback(() => {
-    clearResumeTimer();
-    clearAutoplayTimer();
-    setIsPaused(true);
-  }, [clearAutoplayTimer, clearResumeTimer]);
-
-  const resumeAutoplay = useCallback(
-    (delay = 0) => {
-      clearResumeTimer();
-
-      if (delay > 0) {
-        resumeTimeoutRef.current = window.setTimeout(() => {
-          setIsPaused(false);
-        }, delay);
-        return;
-      }
-
-      setIsPaused(false);
-    },
-    [clearResumeTimer],
-  );
-
-  const handleManualInteraction = useCallback(() => {
-    pauseAutoplay();
-    resumeAutoplay(RESUME_DELAY);
-  }, [pauseAutoplay, resumeAutoplay]);
-
-  const goToSlide = useCallback(
-    (index: number) => {
-      api?.scrollTo(index);
-      handleManualInteraction();
-    },
-    [api, handleManualInteraction],
-  );
-
-  const goToPrevious = useCallback(() => {
-    api?.scrollPrev();
-    handleManualInteraction();
-  }, [api, handleManualInteraction]);
-
-  const goToNext = useCallback(() => {
-    api?.scrollNext();
-    handleManualInteraction();
-  }, [api, handleManualInteraction]);
-
   useEffect(() => {
     if (!api) return;
 
     const updateCurrent = () => {
-      setCurrentIndex(api.selectedScrollSnap());
-    };
-    const resumeAfterDrag = () => resumeAutoplay(RESUME_DELAY);
+      const selectedIndex = api.selectedScrollSnap();
 
+      setCurrentIndex((current) =>
+        current === selectedIndex ? current : selectedIndex,
+      );
+    };
     updateCurrent();
     api.on("select", updateCurrent);
     api.on("reInit", updateCurrent);
-    api.on("pointerDown", pauseAutoplay);
-    api.on("settle", resumeAfterDrag);
 
     return () => {
       api.off("select", updateCurrent);
       api.off("reInit", updateCurrent);
-      api.off("pointerDown", pauseAutoplay);
-      api.off("settle", resumeAfterDrag);
     };
-  }, [api, pauseAutoplay, resumeAutoplay]);
-
-  useEffect(() => {
-    clearAutoplayTimer();
-
-    if (!api || slideCount < 2 || isPaused || prefersReducedMotion || document.hidden) {
-      return;
-    }
-
-    autoplayTimeoutRef.current = window.setTimeout(() => {
-      api.scrollNext();
-    }, AUTOPLAY_DELAY);
-
-    return clearAutoplayTimer;
-  }, [api, clearAutoplayTimer, currentIndex, isPaused, prefersReducedMotion, slideCount]);
-
-  useEffect(() => {
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        pauseAutoplay();
-        return;
-      }
-
-      resumeAutoplay(RESUME_DELAY);
-    };
-
-    document.addEventListener("visibilitychange", handleVisibilityChange);
-
-    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
-  }, [pauseAutoplay, resumeAutoplay]);
-
-  useEffect(
-    () => () => {
-      clearResumeTimer();
-      clearAutoplayTimer();
-    },
-    [clearAutoplayTimer, clearResumeTimer],
-  );
+  }, [api]);
 
   if (slideCount === 0) {
     return null;
@@ -180,18 +65,10 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
     <section
       aria-label="Galeria do projeto Camila Timóteo Vieira"
       className="relative min-w-0 overflow-hidden"
-      onMouseEnter={pauseAutoplay}
-      onMouseLeave={() => resumeAutoplay(RESUME_DELAY)}
-      onPointerEnter={pauseAutoplay}
-      onPointerLeave={() => resumeAutoplay(RESUME_DELAY)}
-      onFocusCapture={pauseAutoplay}
-      onBlurCapture={() => resumeAutoplay(RESUME_DELAY)}
-      onTouchStart={pauseAutoplay}
-      onTouchEnd={() => resumeAutoplay(RESUME_DELAY)}
     >
       <div className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-[#1A1A1A] p-3 shadow-[0_20px_64px_rgba(0,0,0,0.24)] sm:p-4">
         <Carousel
-          opts={{ align: "start", loop: true, duration: 28 }}
+          opts={carouselOptions}
           setApi={setApi}
           className="min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#090909]"
         >
@@ -215,7 +92,11 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
 
           <CarouselContent className="ml-0 max-w-full">
             {images.map((image, index) => (
-              <CarouselItem key={image.src} className="pl-0">
+              <CarouselItem
+                key={image.src}
+                className="pl-0"
+                aria-label={`Imagem ${index + 1} de ${slideCount}: ${image.label}`}
+              >
                 <div className="relative flex aspect-[16/11] items-center justify-center bg-[#050505] p-3 sm:aspect-[16/10] sm:p-4 lg:aspect-[16/11]">
                   <Image
                     src={image.src}
@@ -235,7 +116,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
             <button
               type="button"
               aria-label="Imagem anterior do projeto"
-              onClick={goToPrevious}
+              onClick={() => api?.scrollPrev()}
               className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111] text-primary transition hover:border-primary/45 hover:bg-[#181818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 sm:min-h-11 sm:min-w-11"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
@@ -248,7 +129,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
             <button
               type="button"
               aria-label="Próxima imagem do projeto"
-              onClick={goToNext}
+              onClick={() => api?.scrollNext()}
               className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111] text-primary transition hover:border-primary/45 hover:bg-[#181818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 sm:min-h-11 sm:min-w-11"
             >
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
@@ -265,7 +146,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
               type="button"
               aria-label={"Ir para a imagem " + (index + 1) + " de " + slideCount}
               aria-current={currentIndex === index ? "true" : undefined}
-              onClick={() => goToSlide(index)}
+              onClick={() => api?.scrollTo(index)}
               className={[
                 "h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70",
                 currentIndex === index

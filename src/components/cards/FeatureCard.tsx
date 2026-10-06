@@ -1,11 +1,20 @@
-import { Check, Compass, MonitorSmartphone, Workflow } from "lucide-react";
+import {
+  Check,
+  MessageCircle,
+  PlugZap,
+  MonitorSmartphone,
+  Workflow,
+  Wrench,
+} from "lucide-react";
 
 import type { Solution } from "@/data/solutions";
+import { buildWhatsAppUrl } from "@/data/contact";
 
 const icons = {
   layout: MonitorSmartphone,
+  integration: PlugZap,
   workflow: Workflow,
-  strategy: Compass,
+  support: Wrench,
 } as const;
 
 interface FeatureCardProps {
@@ -14,6 +23,7 @@ interface FeatureCardProps {
 
 export default function FeatureCard({ solution }: FeatureCardProps) {
   const Icon = icons[solution.icon];
+  const whatsappUrl = buildWhatsAppUrl(solution.whatsappMessage);
 
   return (
     <article className="group flex h-full flex-col rounded-3xl border border-white/[0.12] bg-[#202020] p-6 text-card-foreground transition duration-300 hover:-translate-y-1 hover:border-primary/35 hover:bg-[#242424] sm:p-7">
@@ -44,6 +54,19 @@ export default function FeatureCard({ solution }: FeatureCardProps) {
             </li>
           ))}
         </ul>
+
+        {whatsappUrl && (
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`Conversar sobre ${solution.title} pelo WhatsApp`}
+            className="mt-7 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-xl border border-primary/35 bg-primary/[0.08] px-4 py-3 text-sm font-semibold text-primary transition hover:border-primary/60 hover:bg-primary/[0.14] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-[#202020]"
+          >
+            <MessageCircle className="h-4 w-4" aria-hidden="true" />
+            Conversar sobre este serviço
+          </a>
+        )}
       </div>
     </article>
   );

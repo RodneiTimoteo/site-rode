@@ -34,7 +34,7 @@ export const projectsSection = {
   eyebrow: "Projetos",
   title: "Projetos desenvolvidos para transformar presença digital em confiança",
   description:
-    "Cada projeto é planejado de acordo com os objetivos, o público e a identidade de cada cliente.",
+    "Veja um projeto publicado e, em seguida, estudos visuais identificados como conceitos. Cada categoria é apresentada sem misturar trabalho de cliente com exploração de design.",
 } as const;
 
 export const featuredProject: FeaturedProject = {
@@ -111,5 +111,5 @@ export const segmentConcepts = [
 export const segmentConceptsIntro = {
   title: "Conceitos por segmento",
   description:
-    "Estudos visuais desenvolvidos para demonstrar possibilidades de presença digital em diferentes áreas.",
+    "Estudos visuais criados para demonstrar possibilidades de presença digital. Eles não representam projetos contratados ou publicados para clientes.",
 } as const;
