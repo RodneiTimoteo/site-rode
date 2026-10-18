@@ -16,19 +16,28 @@ const projectContactUrl = buildWhatsAppUrl(
   "Olá! Conheci a RODE pelo site e quero conversar sobre um projeto digital. Meu objetivo é: [conte brevemente o que você precisa].",
 );
 
-export default function Projects() {
+interface ProjectsProps {
+  showHeading?: boolean;
+}
+
+export default function Projects({ showHeading = true }: ProjectsProps) {
   return (
-    <Section id="projetos" className="border-b border-white/10 bg-[#050505] scroll-mt-24">
-      <SectionTitle
-        eyebrow={projectsSection.eyebrow}
-        title={projectsSection.title}
-        description={projectsSection.description}
-        tone="dark"
-      />
+    <Section id="projetos" className="border-b border-border bg-background scroll-mt-24">
+      {showHeading && (
+        <SectionTitle
+          eyebrow={projectsSection.eyebrow}
+          title={projectsSection.title}
+          description={projectsSection.description}
+          tone="dark"
+        />
+      )}
 
       <article
         id={featuredProject.detailsHref.replace("#", "")}
-        className="mt-10 grid gap-8 rounded-[2rem] border border-white/10 bg-[#111111] p-5 text-card-foreground shadow-[0_18px_60px_rgba(0,0,0,0.22)] md:mt-12 md:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center"
+        className={[
+          "grid gap-8 rounded-[2rem] border border-border bg-card p-5 text-card-foreground shadow-card md:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:items-center",
+          showHeading ? "mt-10 md:mt-12" : "",
+        ].join(" ")}
       >
         <ProjectCarousel images={featuredProject.images} />
 
@@ -70,7 +79,7 @@ export default function Projects() {
             {featuredProject.technologies.map((technology) => (
               <li
                 key={technology}
-                className="rounded-full border border-white/10 px-3 py-1 text-xs font-medium text-muted-foreground"
+                className="rounded-full border border-border px-3 py-1 text-xs font-medium text-muted-foreground"
               >
                 {technology}
               </li>
@@ -83,7 +92,7 @@ export default function Projects() {
                 href={featuredProject.primaryLink.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-primary/40 bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition hover:border-primary hover:bg-[#D7B86C] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="button-primary px-5"
               >
                 {featuredProject.primaryLink.label}
                 <ExternalLink className="h-4 w-4" aria-hidden="true" />
@@ -95,7 +104,7 @@ export default function Projects() {
                 href={projectContactUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl border border-white/12 bg-white/[0.03] px-5 py-3 text-sm font-semibold text-foreground transition hover:border-primary/40 hover:bg-white/[0.06] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                className="button-secondary px-5"
               >
                 Conversar sobre um projeto
                 <MessageCircle className="h-4 w-4" aria-hidden="true" />
@@ -105,7 +114,7 @@ export default function Projects() {
         </div>
       </article>
 
-      <div className="mt-12 border-t border-white/10 pt-9 sm:mt-14 sm:pt-10">
+      <div className="mt-12 border-t border-border pt-9 sm:mt-14 sm:pt-10">
         <div className="max-w-2xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
             Estudos não publicados
@@ -122,7 +131,7 @@ export default function Projects() {
           {segmentConcepts.map((concept) => (
             <article
               key={concept.id}
-              className="rounded-2xl border border-white/10 bg-[#111111] p-5 transition hover:border-primary/25 hover:bg-[#151515]"
+              className="rounded-2xl border border-border bg-card p-5 transition hover:border-primary/25 hover:bg-surface-elevated"
             >
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary/90">
                 Conceito visual

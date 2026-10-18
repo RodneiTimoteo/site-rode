@@ -5,7 +5,7 @@ export const heroContent = {
   description:
     "A RODE cria sites e landing pages, conecta formulários a ferramentas de trabalho e automatiza tarefas para tornar o atendimento mais claro e a rotina mais organizada.",
   primaryAction: {
-    label: "Conversar sobre meu projeto",
+    label: "Solicitar orçamento",
   },
   secondaryAction: {
     label: "Conhecer projetos",

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 
 import Logo from "@/components/common/Logo";
+import NavigationLink from "@/components/common/NavigationLink";
 import Container from "@/components/layout/Container";
 import { contactInfo } from "@/data/contact";
 import { navigation } from "@/data/navigation";
@@ -12,7 +13,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-white/12 bg-[#050505] text-foreground">
+    <footer className="border-t border-border bg-background text-foreground">
       <Container className="py-12 sm:py-14 lg:py-16">
         <div className="grid gap-10 lg:grid-cols-[1.35fr_0.8fr_1fr] lg:gap-14">
           <div>
@@ -34,13 +35,13 @@ export default function Footer() {
 
             <nav className="mt-5 flex flex-col gap-3" aria-label="Navegação do rodapé">
               {navigation.map((item) => (
-                <Link
+                <NavigationLink
                   key={item.label}
                   href={item.href}
-                  className="w-fit rounded-md text-sm text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 focus-visible:ring-offset-4 focus-visible:ring-offset-background"
+                  className="w-fit rounded-md text-sm text-muted-foreground transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-background"
                 >
                   {item.label}
-                </Link>
+                </NavigationLink>
               ))}
             </nav>
           </div>
@@ -86,7 +87,7 @@ export default function Footer() {
                     aria-label={`Abrir ${name} da RODE em uma nova aba`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-white/10 px-3 text-sm font-medium text-muted-foreground transition hover:border-primary/50 hover:bg-white/5 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70"
+                    className="inline-flex min-h-10 items-center gap-2 rounded-xl border border-border px-3 text-sm font-medium text-muted-foreground transition hover:border-primary/50 hover:bg-foreground/5 hover:text-brand-champagne focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <span>{username || name}</span>
                     <ExternalLink className="h-3.5 w-3.5" aria-hidden="true" />
@@ -97,7 +98,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-border pt-6 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
           <p>
             © {currentYear} {siteConfig.name}. Todos os direitos reservados.
           </p>

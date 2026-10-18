@@ -21,25 +21,25 @@ export default function SectionTitle({
   const colors =
     tone === "dark"
       ? {
-          eyebrow: "text-primary",
+          eyebrow: "text-brand-champagne",
           title: "text-foreground",
           description: "text-muted-foreground",
         }
       : {
-          eyebrow: "text-slate-500",
-          title: "text-slate-950",
-          description: "text-slate-600",
+          eyebrow: "text-light-muted",
+          title: "text-light-foreground",
+          description: "text-light-muted",
         };
 
   return (
     <div className={`flex max-w-3xl flex-col ${alignment}`}>
       {eyebrow && (
-        <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.14em] sm:mb-4 sm:text-sm ${colors.eyebrow}`}>
+        <p className={`mb-3 font-sans text-xs font-semibold uppercase tracking-[0.14em] sm:mb-4 sm:text-sm ${colors.eyebrow}`}>
           {eyebrow}
         </p>
       )}
 
-      <h2 className={`text-3xl font-bold tracking-normal sm:text-4xl lg:text-5xl ${colors.title}`}>
+      <h2 className={`text-3xl font-semibold tracking-tight sm:text-4xl lg:text-5xl ${colors.title}`}>
         {title}
       </h2>
 

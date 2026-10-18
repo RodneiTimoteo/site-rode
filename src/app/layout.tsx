@@ -1,9 +1,19 @@
 import type { Metadata } from "next";
+import { Inter, Sora } from "next/font/google";
 import { siteConfig } from "@/data/site";
 import "./globals.css";
 
-const fontFamily =
-  'Inter, "Segoe UI", "Helvetica Neue", Arial, sans-serif';
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  display: "swap",
+});
+
+const sora = Sora({
+  variable: "--font-sora",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -35,14 +45,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`
-          bg-white
-          text-slate-900
-          antialiased
-        `}
-        style={{ fontFamily }}
-      >
+      <body className={`${inter.variable} ${sora.variable}`}>
+        <a href="#conteudo-principal" className="skip-link">
+          Pular para o conteúdo
+        </a>
         {children}
       </body>
     </html>

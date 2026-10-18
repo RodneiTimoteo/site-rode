@@ -12,8 +12,8 @@ import {
 function AboutVisual() {
   return (
     <div className="relative" aria-hidden="true">
-      <div className="rounded-[2rem] border border-white/10 bg-[#111111] p-5 text-card-foreground">
-        <div className="flex items-center justify-between border-b border-white/10 pb-5">
+      <div className="rounded-[2rem] border border-border bg-card p-5 text-card-foreground shadow-card">
+        <div className="flex items-center justify-between border-b border-border pb-5">
           <span className="text-3xl font-semibold tracking-normal text-foreground">
             RODE
           </span>
@@ -23,14 +23,14 @@ function AboutVisual() {
         </div>
 
         <div className="grid gap-4 py-6">
-          <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+          <div className="rounded-2xl border border-border bg-foreground/[0.03] p-4">
             <div className="mb-4 flex items-center justify-between">
               <span className="h-2 w-20 rounded-full bg-primary/70" />
-              <span className="h-2 w-12 rounded-full bg-white/[0.15]" />
+              <span className="h-2 w-12 rounded-full bg-foreground/[0.15]" />
             </div>
             <div className="space-y-3">
-              <span className="block h-2 rounded-full bg-white/[0.16]" />
-              <span className="block h-2 w-5/6 rounded-full bg-white/10" />
+              <span className="block h-2 rounded-full bg-foreground/[0.16]" />
+              <span className="block h-2 w-5/6 rounded-full bg-foreground/10" />
             </div>
           </div>
 
@@ -39,9 +39,9 @@ function AboutVisual() {
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
                 clareza
               </span>
-              <span className="mt-6 block h-16 rounded-xl bg-white/[0.05]" />
+              <span className="mt-6 block h-16 rounded-xl bg-foreground/[0.05]" />
             </div>
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-4">
+            <div className="rounded-2xl border border-border bg-foreground/[0.03] p-4">
               <span className="text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
                 tecnologia
               </span>
@@ -50,29 +50,40 @@ function AboutVisual() {
           </div>
         </div>
 
-        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-t border-white/10 pt-5">
-          <span className="h-px bg-white/12" />
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 border-t border-border pt-5">
+          <span className="h-px bg-border" />
           <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-          <span className="h-px bg-white/12" />
+          <span className="h-px bg-border" />
         </div>
       </div>
     </div>
   );
 }
 
-export default function About() {
+interface AboutProps {
+  showHeading?: boolean;
+}
+
+export default function About({ showHeading = true }: AboutProps) {
   return (
-    <Section id="sobre" className="border-b border-white/10 bg-[#050505] scroll-mt-24">
+    <Section id="sobre" className="border-b border-border bg-background scroll-mt-24">
       <div className="grid gap-12 lg:grid-cols-[1fr_0.86fr] lg:items-start lg:gap-16">
         <div>
-          <SectionTitle
-            eyebrow={aboutSection.eyebrow}
-            title={aboutSection.title}
-            description={aboutSection.description}
-            tone="dark"
-          />
+          {showHeading && (
+            <SectionTitle
+              eyebrow={aboutSection.eyebrow}
+              title={aboutSection.title}
+              description={aboutSection.description}
+              tone="dark"
+            />
+          )}
 
-          <div className="mt-8 space-y-5 text-base leading-8 text-muted-foreground">
+          <div
+            className={[
+              "space-y-5 text-base leading-8 text-muted-foreground",
+              showHeading ? "mt-8" : "",
+            ].join(" ")}
+          >
             {aboutContent.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -86,7 +97,7 @@ export default function About() {
         {aboutPeople.map((person) => (
           <article
             key={person.id}
-            className="rounded-3xl border border-white/10 bg-[#111111] p-6 text-card-foreground transition duration-300 hover:border-primary/30 hover:bg-[#151515] sm:p-7"
+            className="rounded-3xl border border-border bg-card p-6 text-card-foreground shadow-card transition duration-300 hover:border-primary/30 hover:bg-surface-elevated sm:p-7"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-primary">
               {person.role}
@@ -114,7 +125,7 @@ export default function About() {
         {aboutDifferentials.map((item) => (
           <div
             key={item.id}
-            className="flex gap-3 rounded-2xl border border-white/10 bg-[#111111] p-5 text-sm leading-6 text-muted-foreground"
+            className="flex gap-3 rounded-2xl border border-border bg-card p-5 text-sm leading-6 text-muted-foreground"
           >
             <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />
             <span>{item.title}</span>

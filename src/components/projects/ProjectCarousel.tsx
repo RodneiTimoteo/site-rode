@@ -66,17 +66,17 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
       aria-label="Galeria do projeto Camila Timóteo Vieira"
       className="relative min-w-0 overflow-hidden"
     >
-      <div className="min-w-0 overflow-hidden rounded-3xl border border-white/10 bg-[#1A1A1A] p-3 shadow-[0_20px_64px_rgba(0,0,0,0.24)] sm:p-4">
+      <div className="min-w-0 overflow-hidden rounded-3xl border border-border bg-surface-subtle p-3 shadow-card sm:p-4">
         <Carousel
           opts={carouselOptions}
           setApi={setApi}
-          className="min-w-0 overflow-hidden rounded-2xl border border-white/10 bg-[#090909]"
+          className="min-w-0 overflow-hidden rounded-2xl border border-border bg-background"
         >
-          <div className="flex items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-5">
+          <div className="flex items-center justify-between gap-3 border-b border-border px-4 py-3 sm:px-5">
             <div className="flex items-center gap-2" aria-hidden="true">
               <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/20" />
-              <span className="h-2.5 w-2.5 rounded-full bg-white/10" />
+              <span className="h-2.5 w-2.5 rounded-full bg-foreground/20" />
+              <span className="h-2.5 w-2.5 rounded-full bg-foreground/10" />
             </div>
 
             <div className="min-w-0 flex-1 text-center">
@@ -97,7 +97,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
                 className="pl-0"
                 aria-label={`Imagem ${index + 1} de ${slideCount}: ${image.label}`}
               >
-                <div className="relative flex aspect-[16/11] items-center justify-center bg-[#050505] p-3 sm:aspect-[16/10] sm:p-4 lg:aspect-[16/11]">
+                <div className="relative flex aspect-[16/11] items-center justify-center bg-background p-3 sm:aspect-[16/10] sm:p-4 lg:aspect-[16/11]">
                   <Image
                     src={image.src}
                     alt={image.alt}
@@ -112,12 +112,12 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
             ))}
           </CarouselContent>
 
-          <div className="flex items-center justify-between gap-4 border-t border-white/10 px-4 py-3 sm:px-5">
+          <div className="flex items-center justify-between gap-4 border-t border-border px-4 py-3 sm:px-5">
             <button
               type="button"
               aria-label="Imagem anterior do projeto"
               onClick={() => api?.scrollPrev()}
-              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111] text-primary transition hover:border-primary/45 hover:bg-[#181818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 sm:min-h-11 sm:min-w-11"
+              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-border bg-card text-brand-champagne transition hover:border-primary/50 hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-11 sm:min-w-11"
             >
               <ChevronLeft className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -130,7 +130,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
               type="button"
               aria-label="Próxima imagem do projeto"
               onClick={() => api?.scrollNext()}
-              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-white/10 bg-[#111111] text-primary transition hover:border-primary/45 hover:bg-[#181818] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70 sm:min-h-11 sm:min-w-11"
+              className="inline-flex min-h-10 min-w-10 items-center justify-center rounded-full border border-border bg-card text-brand-champagne transition hover:border-primary/50 hover:bg-surface-elevated focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:min-h-11 sm:min-w-11"
             >
               <ChevronRight className="h-4 w-4" aria-hidden="true" />
             </button>
@@ -151,7 +151,7 @@ export default function ProjectCarousel({ images }: ProjectCarouselProps) {
                 "h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/70",
                 currentIndex === index
                   ? "w-8 bg-primary"
-                  : "w-2 bg-white/25 hover:bg-white/45",
+                  : "w-2 bg-foreground/25 hover:bg-foreground/45",
               ].join(" ")}
             >
               <span className="sr-only">{image.label}</span>

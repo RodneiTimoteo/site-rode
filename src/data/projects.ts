@@ -17,6 +17,7 @@ export interface FeaturedProject {
   category: string;
   objective: string;
   solution: string;
+  features: string[];
   technologies: string[];
   status: string;
   primaryLink?: ProjectLink;
@@ -45,6 +46,11 @@ export const featuredProject: FeaturedProject = {
     "Apresentar sua trajetória profissional, experiências, cursos, conquistas e projetos pessoais em uma presença digital moderna e organizada.",
   solution:
     "Desenvolvimento de um site responsivo, com identidade executiva, navegação clara, integração com redes sociais e estrutura preparada para valorizar sua autoridade profissional.",
+  features: [
+    "Site responsivo",
+    "Navegação clara",
+    "Integração com redes sociais",
+  ],
   technologies: ["Next.js", "React", "TypeScript", "Tailwind CSS"],
   status: "Projeto publicado",
   detailsHref: "#case-camila-timoteo-vieira",

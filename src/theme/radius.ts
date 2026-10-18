@@ -1,6 +1,6 @@
 export const radius = {
-  sm: "0.5rem",
-  md: "0.75rem",
-  lg: "1rem",
-  xl: "1.25rem",
+  sm: "var(--radius-sm)",
+  md: "var(--radius-md)",
+  lg: "var(--radius-lg)",
+  xl: "var(--radius-xl)",
 } as const;
